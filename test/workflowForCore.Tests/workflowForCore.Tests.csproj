@@ -25,6 +25,8 @@
   <ItemGroup>
     <!-- Data written by .NET Framework 4.8 and by workflowForCore (InteropTests). -->
     <None Include="FrameworkData\**" CopyToOutputDirectory="PreserveNewest" />
+    <!-- The workflow's rules, as Visual Studio's designer embeds them. -->
+    <EmbeddedResource Include="RulesWorkflow.rules" LogicalName="WorkflowForCore.Tests.RulesWorkflow.rules" />
     <!-- .NET Framework 4.8's SQL scripts, to create the databases on .NET Framework too (SqlServer.cs). -->
     <None Include="..\..\src\workflowForCore.System.Workflow.Runtime\FrameworkData\Sql\*.sql" Link="Sql\%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>

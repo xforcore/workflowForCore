@@ -1,0 +1,166 @@
+﻿<RuleDefinitions xmlns="http://schemas.microsoft.com/winfx/2006/xaml/workflow">
+	<RuleDefinitions.RuleSets>
+		<RuleSet Name="Pricing" ChainingBehavior="Full" Description="{p3:Null}" xmlns:p3="http://schemas.microsoft.com/winfx/2006/xaml">
+			<RuleSet.Rules>
+				<Rule Name="Discount" ReevaluationBehavior="Always" Priority="2" Description="{p3:Null}" Active="True">
+					<Rule.ThenActions>
+						<RuleStatementAction>
+							<RuleStatementAction.CodeDomStatement>
+								<ns0:CodeAssignStatement LinePragma="{p3:Null}" xmlns:ns0="clr-namespace:System.CodeDom;Assembly=System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+									<ns0:CodeAssignStatement.Left>
+										<ns0:CodePropertyReferenceExpression PropertyName="Discount">
+											<ns0:CodePropertyReferenceExpression.TargetObject>
+												<ns0:CodeThisReferenceExpression />
+											</ns0:CodePropertyReferenceExpression.TargetObject>
+										</ns0:CodePropertyReferenceExpression>
+									</ns0:CodeAssignStatement.Left>
+									<ns0:CodeAssignStatement.Right>
+										<ns0:CodePrimitiveExpression>
+											<ns0:CodePrimitiveExpression.Value>
+												<ns1:Int32 xmlns:ns1="clr-namespace:System;Assembly=mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">10</ns1:Int32>
+											</ns0:CodePrimitiveExpression.Value>
+										</ns0:CodePrimitiveExpression>
+									</ns0:CodeAssignStatement.Right>
+								</ns0:CodeAssignStatement>
+							</RuleStatementAction.CodeDomStatement>
+						</RuleStatementAction>
+					</Rule.ThenActions>
+					<Rule.ElseActions>
+						<RuleStatementAction>
+							<RuleStatementAction.CodeDomStatement>
+								<ns0:CodeAssignStatement LinePragma="{p3:Null}" xmlns:ns0="clr-namespace:System.CodeDom;Assembly=System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+									<ns0:CodeAssignStatement.Left>
+										<ns0:CodePropertyReferenceExpression PropertyName="Discount">
+											<ns0:CodePropertyReferenceExpression.TargetObject>
+												<ns0:CodeThisReferenceExpression />
+											</ns0:CodePropertyReferenceExpression.TargetObject>
+										</ns0:CodePropertyReferenceExpression>
+									</ns0:CodeAssignStatement.Left>
+									<ns0:CodeAssignStatement.Right>
+										<ns0:CodePrimitiveExpression>
+											<ns0:CodePrimitiveExpression.Value>
+												<ns1:Int32 xmlns:ns1="clr-namespace:System;Assembly=mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">0</ns1:Int32>
+											</ns0:CodePrimitiveExpression.Value>
+										</ns0:CodePrimitiveExpression>
+									</ns0:CodeAssignStatement.Right>
+								</ns0:CodeAssignStatement>
+							</RuleStatementAction.CodeDomStatement>
+						</RuleStatementAction>
+					</Rule.ElseActions>
+					<Rule.Condition>
+						<RuleExpressionCondition Name="{p3:Null}">
+							<RuleExpressionCondition.Expression>
+								<ns0:CodeBinaryOperatorExpression Operator="GreaterThan" xmlns:ns0="clr-namespace:System.CodeDom;Assembly=System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+									<ns0:CodeBinaryOperatorExpression.Left>
+										<ns0:CodePropertyReferenceExpression PropertyName="Amount">
+											<ns0:CodePropertyReferenceExpression.TargetObject>
+												<ns0:CodeThisReferenceExpression />
+											</ns0:CodePropertyReferenceExpression.TargetObject>
+										</ns0:CodePropertyReferenceExpression>
+									</ns0:CodeBinaryOperatorExpression.Left>
+									<ns0:CodeBinaryOperatorExpression.Right>
+										<ns0:CodePrimitiveExpression>
+											<ns0:CodePrimitiveExpression.Value>
+												<ns1:Int32 xmlns:ns1="clr-namespace:System;Assembly=mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">100</ns1:Int32>
+											</ns0:CodePrimitiveExpression.Value>
+										</ns0:CodePrimitiveExpression>
+									</ns0:CodeBinaryOperatorExpression.Right>
+								</ns0:CodeBinaryOperatorExpression>
+							</RuleExpressionCondition.Expression>
+						</RuleExpressionCondition>
+					</Rule.Condition>
+				</Rule>
+				<Rule Name="Shipping" ReevaluationBehavior="Always" Priority="1" Description="{p3:Null}" Active="True">
+					<Rule.ThenActions>
+						<RuleStatementAction>
+							<RuleStatementAction.CodeDomStatement>
+								<ns0:CodeAssignStatement LinePragma="{p3:Null}" xmlns:ns0="clr-namespace:System.CodeDom;Assembly=System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+									<ns0:CodeAssignStatement.Left>
+										<ns0:CodePropertyReferenceExpression PropertyName="Shipping">
+											<ns0:CodePropertyReferenceExpression.TargetObject>
+												<ns0:CodeThisReferenceExpression />
+											</ns0:CodePropertyReferenceExpression.TargetObject>
+										</ns0:CodePropertyReferenceExpression>
+									</ns0:CodeAssignStatement.Left>
+									<ns0:CodeAssignStatement.Right>
+										<ns0:CodePrimitiveExpression>
+											<ns0:CodePrimitiveExpression.Value>
+												<ns1:String xmlns:ns1="clr-namespace:System;Assembly=mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">free</ns1:String>
+											</ns0:CodePrimitiveExpression.Value>
+										</ns0:CodePrimitiveExpression>
+									</ns0:CodeAssignStatement.Right>
+								</ns0:CodeAssignStatement>
+							</RuleStatementAction.CodeDomStatement>
+						</RuleStatementAction>
+					</Rule.ThenActions>
+					<Rule.ElseActions>
+						<RuleStatementAction>
+							<RuleStatementAction.CodeDomStatement>
+								<ns0:CodeAssignStatement LinePragma="{p3:Null}" xmlns:ns0="clr-namespace:System.CodeDom;Assembly=System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+									<ns0:CodeAssignStatement.Left>
+										<ns0:CodePropertyReferenceExpression PropertyName="Shipping">
+											<ns0:CodePropertyReferenceExpression.TargetObject>
+												<ns0:CodeThisReferenceExpression />
+											</ns0:CodePropertyReferenceExpression.TargetObject>
+										</ns0:CodePropertyReferenceExpression>
+									</ns0:CodeAssignStatement.Left>
+									<ns0:CodeAssignStatement.Right>
+										<ns0:CodePrimitiveExpression>
+											<ns0:CodePrimitiveExpression.Value>
+												<ns1:String xmlns:ns1="clr-namespace:System;Assembly=mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">paid</ns1:String>
+											</ns0:CodePrimitiveExpression.Value>
+										</ns0:CodePrimitiveExpression>
+									</ns0:CodeAssignStatement.Right>
+								</ns0:CodeAssignStatement>
+							</RuleStatementAction.CodeDomStatement>
+						</RuleStatementAction>
+					</Rule.ElseActions>
+					<Rule.Condition>
+						<RuleExpressionCondition Name="{p3:Null}">
+							<RuleExpressionCondition.Expression>
+								<ns0:CodeBinaryOperatorExpression Operator="GreaterThan" xmlns:ns0="clr-namespace:System.CodeDom;Assembly=System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+									<ns0:CodeBinaryOperatorExpression.Left>
+										<ns0:CodePropertyReferenceExpression PropertyName="Discount">
+											<ns0:CodePropertyReferenceExpression.TargetObject>
+												<ns0:CodeThisReferenceExpression />
+											</ns0:CodePropertyReferenceExpression.TargetObject>
+										</ns0:CodePropertyReferenceExpression>
+									</ns0:CodeBinaryOperatorExpression.Left>
+									<ns0:CodeBinaryOperatorExpression.Right>
+										<ns0:CodePrimitiveExpression>
+											<ns0:CodePrimitiveExpression.Value>
+												<ns1:Int32 xmlns:ns1="clr-namespace:System;Assembly=mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">0</ns1:Int32>
+											</ns0:CodePrimitiveExpression.Value>
+										</ns0:CodePrimitiveExpression>
+									</ns0:CodeBinaryOperatorExpression.Right>
+								</ns0:CodeBinaryOperatorExpression>
+							</RuleExpressionCondition.Expression>
+						</RuleExpressionCondition>
+					</Rule.Condition>
+				</Rule>
+			</RuleSet.Rules>
+		</RuleSet>
+	</RuleDefinitions.RuleSets>
+	<RuleDefinitions.Conditions>
+		<RuleExpressionCondition Name="IsLarge">
+			<RuleExpressionCondition.Expression>
+				<ns0:CodeBinaryOperatorExpression Operator="GreaterThan" xmlns:ns0="clr-namespace:System.CodeDom;Assembly=System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+					<ns0:CodeBinaryOperatorExpression.Left>
+						<ns0:CodePropertyReferenceExpression PropertyName="Amount">
+							<ns0:CodePropertyReferenceExpression.TargetObject>
+								<ns0:CodeThisReferenceExpression />
+							</ns0:CodePropertyReferenceExpression.TargetObject>
+						</ns0:CodePropertyReferenceExpression>
+					</ns0:CodeBinaryOperatorExpression.Left>
+					<ns0:CodeBinaryOperatorExpression.Right>
+						<ns0:CodePrimitiveExpression>
+							<ns0:CodePrimitiveExpression.Value>
+								<ns1:Int32 xmlns:ns1="clr-namespace:System;Assembly=mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">100</ns1:Int32>
+							</ns0:CodePrimitiveExpression.Value>
+						</ns0:CodePrimitiveExpression>
+					</ns0:CodeBinaryOperatorExpression.Right>
+				</ns0:CodeBinaryOperatorExpression>
+			</RuleExpressionCondition.Expression>
+		</RuleExpressionCondition>
+	</RuleDefinitions.Conditions>
+</RuleDefinitions>
