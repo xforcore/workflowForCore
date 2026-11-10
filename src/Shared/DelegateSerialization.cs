@@ -33,8 +33,12 @@ namespace WorkflowForCore.Serialization
         // ([TypeForwardedFrom]) under their .NET Framework assembly, generic arguments too.
         internal static string AssemblyName(Type type)
         {
-            var forwarded = type.GetCustomAttribute<TypeForwardedFromAttribute>(false);
-            return forwarded != null ? forwarded.AssemblyFullName : type.Assembly.FullName;
+            Type definition = type.IsGenericType ? type.GetGenericTypeDefinition() : type;
+            var forwarded = definition.GetCustomAttribute<TypeForwardedFromAttribute>(false);
+            if (forwarded != null)
+                return forwarded.AssemblyFullName;
+            // .NET's core library has what was mscorlib's, not all of it marked [TypeForwardedFrom] (EventHandler<T> isn't).
+            return definition.Assembly == typeof(object).Assembly ? Mscorlib : definition.Assembly.FullName;
         }
 
         internal static string FullName(Type type)
