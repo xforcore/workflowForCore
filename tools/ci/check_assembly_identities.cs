@@ -4,7 +4,7 @@
 // assemblies for .NET Framework 4.8 (Microsoft.NETFramework.ReferenceAssemblies.net48, on every platform) and, on
 // Windows, the GAC (C:\Windows\Microsoft.NET\assembly\GAC_MSIL), which is what .NET Framework loads.
 //
-// Usage: dotnet run tools/ci/check_assembly_identities.cs -- <folder with workflowForCore's assemblies or .nupkg files> <.NET Framework folder>...
+// Usage: dotnet run tools/ci/check_assembly_identities.cs -- <folder with workflowForCore's assemblies or .nupkg files> <.NET Framework folder or reference assemblies .nupkg>...
 // Prints each assembly with both identities and .NET Framework's file version, and exits with 1 on any difference.
 #:property NuGetAudit=false
 using System.IO.Compression;
@@ -31,14 +31,16 @@ foreach (var name in names)
     }
     foreach (var folder in args.Skip(1))
     {
-        var found = Directory.Exists(folder) ? Directory.GetFiles(folder, name + ".dll", SearchOption.AllDirectories) : [];
+        // A folder, or Microsoft's reference assemblies package (a .nupkg, with them in build/.NETFramework/v4.8).
+        byte[] bytes = folder.EndsWith(".nupkg", StringComparison.OrdinalIgnoreCase) ? FromPackage(folder, name) : null;
+        var found = bytes != null ? [folder + "!" + name + ".dll"] : Directory.Exists(folder) ? Directory.GetFiles(folder, name + ".dll", SearchOption.AllDirectories) : [];
         if (found.Length != 1)
         {
             failures++;
             Console.WriteLine($"FAIL {name}: {found.Length} copies in {folder}");
             continue;
         }
-        var (theirs, fileVersion) = Read(File.ReadAllBytes(found[0]));
+        var (theirs, fileVersion) = Read(bytes ?? File.ReadAllBytes(found[0]));
         bool same = ours.Value.Name.Name == theirs.Name && ours.Value.Name.Version == theirs.Version
             && (ours.Value.Name.CultureName ?? "") == (theirs.CultureName ?? "") && Token(ours.Value.Name) == Token(theirs);
         if (!same) failures++;
@@ -65,6 +67,17 @@ static (AssemblyName Name, string FileVersion)? Ours(string folder, string name)
         return Read(bytes.ToArray());
     }
     return null;
+}
+
+static byte[] FromPackage(string nupkg, string name)
+{
+    using var zip = ZipFile.OpenRead(nupkg);
+    var entry = zip.Entries.FirstOrDefault(e => e.FullName == "build/.NETFramework/v4.8/" + name + ".dll");
+    if (entry is null) return null;
+    using var s = entry.Open();
+    var bytes = new MemoryStream();
+    s.CopyTo(bytes);
+    return bytes.ToArray();
 }
 
 static (AssemblyName Name, string FileVersion) Read(byte[] bytes)

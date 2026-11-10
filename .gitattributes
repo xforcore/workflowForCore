@@ -1,0 +1,3 @@
+# Microsoft's data, byte for byte as .NET Framework 4.8 has it (CI's framework-data job compares).
+*.sql -text
+src/FrameworkData/settings.txt -text
