@@ -66,8 +66,8 @@ jobs:
       # Name, version, culture and public key token against .NET Framework 4.8's reference assemblies.
       - name: Assembly identities
         run: |
-          ref=$(find ~/.nuget/packages/microsoft.netframework.referenceassemblies.net48 -type d -path '*build/.NETFramework/v4.8' | head -1)
-          dotnet run tools/ci/check_assembly_identities.cs -- src/workflowForCore.System.Workflow.Activities/bin/Release/net10.0 "$ref"
+          curl -sSfL -o "$RUNNER_TEMP/net48.nupkg" https://api.nuget.org/v3-flatcontainer/microsoft.netframework.referenceassemblies.net48/1.0.3/microsoft.netframework.referenceassemblies.net48.1.0.3.nupkg
+          dotnet run tools/ci/check_assembly_identities.cs -- src/workflowForCore.System.Workflow.Activities/bin/Release/net10.0 "$RUNNER_TEMP/net48.nupkg"
 
       - name: Test
         run: tools/ci/run-tests.sh "$RUNNER_TEMP/TestResults"
@@ -132,9 +132,9 @@ jobs:
       # Against .NET Framework 4.8's GAC, which .NET Framework loads, and its reference assemblies.
       - name: Assembly identities
         run: |
-          ref=$(find ~/.nuget/packages/microsoft.netframework.referenceassemblies.net48 -type d -path '*build/.NETFramework/v4.8' | head -1)
+          curl -sSfL -o "$RUNNER_TEMP/net48.nupkg" https://api.nuget.org/v3-flatcontainer/microsoft.netframework.referenceassemblies.net48/1.0.3/microsoft.netframework.referenceassemblies.net48.1.0.3.nupkg
           dotnet run tools/ci/check_assembly_identities.cs -- src/workflowForCore.System.Workflow.Activities/bin/Release/net10.0 \
-            'C:\Windows\Microsoft.NET\assembly\GAC_MSIL' "$ref"
+            'C:\Windows\Microsoft.NET\assembly\GAC_MSIL' "$RUNNER_TEMP/net48.nupkg"
 
       - name: Test
         run: tools/ci/run-tests.sh "$RUNNER_TEMP/TestResults"
