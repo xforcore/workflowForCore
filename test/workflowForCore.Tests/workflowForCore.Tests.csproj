@@ -22,6 +22,11 @@
     <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <!-- Data written by .NET Framework 4.8 and by workflowForCore (InteropTests). -->
+    <None Include="FrameworkData\**" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
   <ItemGroup Condition="'$(TargetFramework)' == 'net10.0'">
     <ProjectReference Include="..\..\src\workflowForCore.System.Workflow.ComponentModel\workflowForCore.System.Workflow.ComponentModel.csproj" />
     <ProjectReference Include="..\..\src\workflowForCore.System.Workflow.Runtime\workflowForCore.System.Workflow.Runtime.csproj" />

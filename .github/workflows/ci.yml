@@ -71,6 +71,9 @@ jobs:
 
       - name: Test
         run: tools/ci/run-tests.sh "$RUNNER_TEMP/TestResults"
+        env:
+          # The instance state each build writes (InteropTests), to commit to test/workflowForCore.Tests/FrameworkData.
+          WORKFLOWFORCORE_INSTANCES: ${{ runner.temp }}/instances
 
       - name: Test summary
         if: always()
@@ -138,6 +141,9 @@ jobs:
 
       - name: Test
         run: tools/ci/run-tests.sh "$RUNNER_TEMP/TestResults"
+        env:
+          # The instance state each build writes (InteropTests), to commit to test/workflowForCore.Tests/FrameworkData.
+          WORKFLOWFORCORE_INSTANCES: ${{ runner.temp }}/instances
 
       - name: Test summary
         if: always()
@@ -149,6 +155,14 @@ jobs:
         with:
           name: test-results-windows
           path: ${{ runner.temp }}/TestResults/*.trx
+          if-no-files-found: warn
+
+      - name: Upload the instance state .NET Framework 4.8 and workflowForCore wrote
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: instances
+          path: ${{ runner.temp }}/instances
           if-no-files-found: warn
 
       - name: Pack
