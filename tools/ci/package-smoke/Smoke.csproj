@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- An application that uses workflowForCore through its packages only (tools/ci/package-smoke.sh). -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <!-- WF3's types are marked obsolete ("use System.Activities"), as on .NET Framework. -->
+    <NoWarn>$(NoWarn);CS0618</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="workflowForCore" Version="$(WorkflowForCoreVersion)" />
+  </ItemGroup>
+</Project>
