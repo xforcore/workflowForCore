@@ -1,0 +1,847 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- System.Workflow.Activities.StringResources: .NET Framework 4.8's strings, read from its System.Workflow.Activities.dll by tools/framework_data.cs. Don't edit. -->
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ActivationDescr" xml:space="preserve">
+    <value>Please specify whether this Event Sink activity will activate the workflow.</value>
+  </data>
+  <data name="Activity" xml:space="preserve">
+    <value>Activity</value>
+  </data>
+  <data name="Base" xml:space="preserve">
+    <value>Base</value>
+  </data>
+  <data name="CallExternalMethodActivityDescription" xml:space="preserve">
+    <value>Invokes an external method from within a workflow.</value>
+  </data>
+  <data name="ChangingVariable" xml:space="preserve">
+    <value>Changing Variable Property.</value>
+  </data>
+  <data name="CodeActivityDescription" xml:space="preserve">
+    <value>Executes associated code.</value>
+  </data>
+  <data name="CodeConditionDisplayName" xml:space="preserve">
+    <value>Code Condition</value>
+  </data>
+  <data name="CompensatableSequenceActivityDescription" xml:space="preserve">
+    <value>Enables execution of a group of activities in a sequence with compensation.</value>
+  </data>
+  <data name="CompletedStateDescription" xml:space="preserve">
+    <value>Please specify the final state for the state machine.</value>
+  </data>
+  <data name="CompletedStateImagePathDescription" xml:space="preserve">
+    <value>Completed state image.</value>
+  </data>
+  <data name="ConditionDescr" xml:space="preserve">
+    <value>Please specify a condition for Enabling this activity.</value>
+  </data>
+  <data name="ConditionalActivityDescription" xml:space="preserve">
+    <value>Executes contained activities based on condition specified.</value>
+  </data>
+  <data name="ConditionedActivityConditions" xml:space="preserve">
+    <value>Conditions</value>
+  </data>
+  <data name="Conditions" xml:space="preserve">
+    <value>Conditions</value>
+  </data>
+  <data name="ConnectorColorDescription" xml:space="preserve">
+    <value>Connector color.</value>
+  </data>
+  <data name="ConstrainedGroupActivityDescription" xml:space="preserve">
+    <value>Executes contained activities based on associated event/condition. Contained activities are executed until specified condition is met.</value>
+  </data>
+  <data name="CorrelationSetDescr" xml:space="preserve">
+    <value>Please specify a correlation token.</value>
+  </data>
+  <data name="DelayActivityDescription" xml:space="preserve">
+    <value>Delays execution for specified amount of time.</value>
+  </data>
+  <data name="DynamicUpdateConditionDescr" xml:space="preserve">
+    <value>Specify the condition which decides whether to allow WorkflowChanges or not.</value>
+  </data>
+  <data name="Error_ActivationActivityInsideLoop" xml:space="preserve">
+    <value>An activity with Activation set to 'True' must not be inside loop activity.</value>
+  </data>
+  <data name="Error_ActivationActivityNotFirst" xml:space="preserve">
+    <value>An activity with Activation set to 'True' must be the first executable activity.</value>
+  </data>
+  <data name="Error_BlackBoxCustomStateNotSupported" xml:space="preserve">
+    <value>Adding child activities to a custom '{0}' is not allowed.</value>
+  </data>
+  <data name="Error_CAGChildNotFound" xml:space="preserve">
+    <value>Activity "{0}" is not a child of the ConditionedActivityGroup "{1}"</value>
+  </data>
+  <data name="Error_CAGDynamicUpdateNotAllowed" xml:space="preserve">
+    <value>Removal of "{1}" through WorkflowChanges from ConditionedActivityGroup "{0}" is not allowed. The activity is currently executing.</value>
+  </data>
+  <data name="Error_CAGNotExecuting" xml:space="preserve">
+    <value>ConditionedActivityGroup "{0}" is not executing.</value>
+  </data>
+  <data name="Error_CAGQuiet" xml:space="preserve">
+    <value>ConditionedActivityGroup '{0}' is unable to complete. No more children are executing and the Until condition is false.</value>
+  </data>
+  <data name="Error_CallExternalMethodArgsSerializationException" xml:space="preserve">
+    <value>CallExternalMethodActivity parameter {0} not serializable</value>
+  </data>
+  <data name="Error_CanNotChangeAtRuntime" xml:space="preserve">
+    <value>This operation can not be performed at run-time.</value>
+  </data>
+  <data name="Error_CannotConnectToRequest" xml:space="preserve">
+    <value>Operation cannot be completed since the request context cannot be signaled at this time. Make sure workflow is not unloaded between synchronous request response operation.</value>
+  </data>
+  <data name="Error_CannotExecuteStateMachineWithoutInitialState" xml:space="preserve">
+    <value>Cannot initialize '{0}' that does not define a valid '{1}' property.</value>
+  </data>
+  <data name="Error_CannotNestThisActivity" xml:space="preserve">
+    <value>Activity of type {0} cannot be nested inside other activity.</value>
+  </data>
+  <data name="Error_CannotResolveWebServiceInput" xml:space="preserve">
+    <value>WebServiceOutputActivity {0} cannot resolve WebServiceInputActivity by name {1}.</value>
+  </data>
+  <data name="Error_CantFindInstance" xml:space="preserve">
+    <value>Cannot find the instance '{0}'.  The instance was not attached.</value>
+  </data>
+  <data name="Error_CantInvokeDesignTimeTypes" xml:space="preserve">
+    <value>Cannot invoke a workflow compiled within the same project.</value>
+  </data>
+  <data name="Error_CantInvokeSelf" xml:space="preserve">
+    <value>You cannot invoke a workflow from itself.</value>
+  </data>
+  <data name="Error_CantRemoveEventDrivenFromExecutingState" xml:space="preserve">
+    <value>Removal of '{0}' '{1}' is not allowed while parent '{2}' '{3}' is executing.</value>
+  </data>
+  <data name="Error_CantRemoveState" xml:space="preserve">
+    <value>Removal of '{0}' '{1}' is not allowed through WorkflowChanges. '{0}' objects cannot be removed.</value>
+  </data>
+  <data name="Error_CompletedStateCannotContainActivities" xml:space="preserve">
+    <value>CompletedState cannot contain other activities.</value>
+  </data>
+  <data name="Error_ConditionalBranchParentNotConditional" xml:space="preserve">
+    <value>Parent of IfElseBranchActivity must be an IfElseActivity.</value>
+  </data>
+  <data name="Error_ConditionalBranchUpdateAtRuntime" xml:space="preserve">
+    <value>Cannot update branch at runtime.</value>
+  </data>
+  <data name="Error_ConditionalDeclNotAllConditionalBranchDecl" xml:space="preserve">
+    <value>All children must be of type IfElseBranchActivity.</value>
+  </data>
+  <data name="Error_ConditionalLessThanOneChildren" xml:space="preserve">
+    <value>An IfElseActivity must have at least one child of type IfElseBranchActivity.</value>
+  </data>
+  <data name="Error_ConfigurationSectionNotFound" xml:space="preserve">
+    <value>Could not configuration section '{0}'.</value>
+  </data>
+  <data name="Error_ContextStackItemMissing" xml:space="preserve">
+    <value>Code generator context stack does not contained required item of type {0}.</value>
+  </data>
+  <data name="Error_CorrelationAttributeInvalid" xml:space="preserve">
+    <value>Invalid {0} definition on {2}.  Missing required property '{1}'.</value>
+  </data>
+  <data name="Error_CorrelationInitializerNotDefinied" xml:space="preserve">
+    <value>The correlation initializer attribute is not defined for any interface member in '{0}'. At least one member should have the correlation initializer attribute defined.</value>
+  </data>
+  <data name="Error_CorrelationInvalid" xml:space="preserve">
+    <value>The method/delegate '{0}' does not have a parameter/property corresponding to {1}.</value>
+  </data>
+  <data name="Error_CorrelationNotInitialized" xml:space="preserve">
+    <value>Correlation value has not been initialized on declaration {0} for activity {1}.</value>
+  </data>
+  <data name="Error_CorrelationParameterException" xml:space="preserve">
+    <value>Unable to extract correlation parameter "{0}" on ExternalDataExchange interface type "{1}" on operation "{2}". Consider adding CorrelationAlias attribute on the operation.</value>
+  </data>
+  <data name="Error_CorrelationParameterNotFound" xml:space="preserve">
+    <value>{0} with parameter name '{1}' on member {2} does not have a corresponding {3} defined on interface {4}.</value>
+  </data>
+  <data name="Error_CorrelationTokenInReplicator" xml:space="preserve">
+    <value>The CorrelationToken reference variable '{0}' should be declared within the parent multiple instance activity '{1}'.</value>
+  </data>
+  <data name="Error_CorrelationTokenMissing" xml:space="preserve">
+    <value>CorrelationToken property not found on activity {0}.</value>
+  </data>
+  <data name="Error_CorrelationTokenSpecifiedForUncorrelatedInterface" xml:space="preserve">
+    <value>Activity {0} has correlation identifier specified but the interface type {1} has no correlation attributes</value>
+  </data>
+  <data name="Error_CorrelationTypeNotConsistent" xml:space="preserve">
+    <value>Correlation parameter type mismatch. {0} property of '{1}'  on {2} is of type {3}. The expected type here is {4}.  All method/event delegate parameters that correspond to the correlation parameter '{5}' in interface '{6}' must be of the same type.</value>
+  </data>
+  <data name="Error_CorrelationViolationException" xml:space="preserve">
+    <value>Correlation value specified does not match the already initialized correlation value on declaration {0} for activity {1}.</value>
+  </data>
+  <data name="Error_DuplicateCorrelation" xml:space="preserve">
+    <value>Correlation '{0}' is already specified.</value>
+  </data>
+  <data name="Error_DuplicateCorrelationAttribute" xml:space="preserve">
+    <value>Duplicate {0} with value {1} found on {2}.</value>
+  </data>
+  <data name="Error_DuplicateParameter" xml:space="preserve">
+    <value>More than one argument has been passed to parameter '{0}'.</value>
+  </data>
+  <data name="Error_DuplicateWebServiceFaultFound" xml:space="preserve">
+    <value>WebServiceFaultActivity '{0}' also refers to WebServiceInputActivity '{1}'.</value>
+  </data>
+  <data name="Error_DuplicateWebServiceResponseFound" xml:space="preserve">
+    <value>WebServiceOutputActivity '{0}' also refers to WebServiceInput activity '{1}'.</value>
+  </data>
+  <data name="Error_DuplicatedActivityID" xml:space="preserve">
+    <value>There is already an activity with name '{0}'.  Activity names must be unique.</value>
+  </data>
+  <data name="Error_DynamicActivity" xml:space="preserve">
+    <value>CompositeActivity '{0}' status is currently '{1}'. Dynamic modifications are allowed only when the activity status is 'Initialized' or 'Closed'.</value>
+  </data>
+  <data name="Error_DynamicActivity2" xml:space="preserve">
+    <value>CompositeActivity '{0}' status is currently '{1}'. Workflow changes are allowed only when the activity status is 'Initialized' or 'Closed'.</value>
+  </data>
+  <data name="Error_DynamicActivity3" xml:space="preserve">
+    <value>'{0}' status is currently '{1}'. Cannot change EventHandlingScopeActivity when the activity status is 'Executing'.</value>
+  </data>
+  <data name="Error_EventActivityIsImmutable" xml:space="preserve">
+    <value>EventActivity child in an EventDrivenActivity is immutable and cannot be changed.</value>
+  </data>
+  <data name="Error_EventActivityNotValidInStateHandler" xml:space="preserve">
+    <value>{0} cannot contain activities that implement '{1}'.</value>
+  </data>
+  <data name="Error_EventArgumentSerializationException" xml:space="preserve">
+    <value>EventArgs not serializable</value>
+  </data>
+  <data name="Error_EventArgumentValidationException" xml:space="preserve">
+    <value>Type '{0}' needs to be marked as serializable.</value>
+  </data>
+  <data name="Error_EventDeliveryFailedException" xml:space="preserve">
+    <value>Event "{1}" on interface type "{0}" for instance id "{2}" cannot be delivered.</value>
+  </data>
+  <data name="Error_EventDrivenInvalidFirstActivity" xml:space="preserve">
+    <value>The first '{0}' child should implement '{1}', such as '{2}' or '{3}'.</value>
+  </data>
+  <data name="Error_EventDrivenMultipleEventActivity" xml:space="preserve">
+    <value>Only the first child activity of '{2}' '{0}' can implement the '{1}' interface.</value>
+  </data>
+  <data name="Error_EventDrivenNoFirstActivity" xml:space="preserve">
+    <value>A child activity must be present.</value>
+  </data>
+  <data name="Error_EventDrivenParentNotListen" xml:space="preserve">
+    <value>Parent of '{0}' must be '{1}', '{2}', '{3}' or '{4}'.</value>
+  </data>
+  <data name="Error_EventHandlersChildNotFound" xml:space="preserve">
+    <value>Activity passed in is not a valid child.</value>
+  </data>
+  <data name="Error_EventHandlersDeclParentNotScope" xml:space="preserve">
+    <value>The parent activity '{0}' is not a EventHandlingScopeActivity.</value>
+  </data>
+  <data name="Error_EventNameMissing" xml:space="preserve">
+    <value>Event name cannot be an empty string.</value>
+  </data>
+  <data name="Error_ExecInAtomicScope" xml:space="preserve">
+    <value>InvokeWorkflowActivity cannot be used inside TransactionScopeActivity.</value>
+  </data>
+  <data name="Error_ExecWithActivationReceive" xml:space="preserve">
+    <value>The target workflow must not have an activity that implements an WebServiceInputActivity with Activation set to True.</value>
+  </data>
+  <data name="Error_ExternalDataExchangeException" xml:space="preserve">
+    <value>ExternalDataExchangeAttribute missing on interface {0}</value>
+  </data>
+  <data name="Error_ExternalDataExchangeServiceExists" xml:space="preserve">
+    <value>An instance of ExternalDataExchangeService of type {0} already exists in the runtime container.</value>
+  </data>
+  <data name="Error_ExternalRuntimeContainerNotFound" xml:space="preserve">
+    <value>WorkflowRuntime container does not contain ExternalDataExchangeService</value>
+  </data>
+  <data name="Error_FailedToStartTheWorkflow" xml:space="preserve">
+    <value>Could not start the target workflow.</value>
+  </data>
+  <data name="Error_FieldNotExists" xml:space="preserve">
+    <value>Property '{0}' has invalid value. Field '{1}' does not exist.</value>
+  </data>
+  <data name="Error_GeneratorShouldContainSingleActivity" xml:space="preserve">
+    <value>ReplicatorActivity must contain one Activity.</value>
+  </data>
+  <data name="Error_GenericMethodsNotSupported" xml:space="preserve">
+    <value>Method/type {0} is invalid. Generic methods/types are not supported.</value>
+  </data>
+  <data name="Error_GetCalleeWorkflow" xml:space="preserve">
+    <value>Workflow definition for invoked workflow '{0}' could not be loaded.</value>
+  </data>
+  <data name="Error_InitialStateMustBeDifferentThanCompletedState" xml:space="preserve">
+    <value>'{0}' property must be different than '{1}' property.</value>
+  </data>
+  <data name="Error_InitializerFollowerInTxnlScope" xml:space="preserve">
+    <value>The correlation initializer and follower are inside a transactional scope activity.</value>
+  </data>
+  <data name="Error_InitializerInReplicator" xml:space="preserve">
+    <value>HandleExternalEventActivity which initializes the correlation cannot be declared within the parent multiple instance activity {0}.</value>
+  </data>
+  <data name="Error_InstanceDehydratedBeforeSendingResponse" xml:space="preserve">
+    <value>The workflow instance received the web service request but unloaded before sending the response.</value>
+  </data>
+  <data name="Error_InsufficientArrayPassedIn" xml:space="preserve">
+    <value>The number of elements in the source ICollection is greater than the available space from index to the end of the destination array.</value>
+  </data>
+  <data name="Error_InterfaceTypeNeedsExternalDataExchangeAttribute" xml:space="preserve">
+    <value>Communication interface needs to have ExternalDataExchangeService attribute applied.</value>
+  </data>
+  <data name="Error_InterfaceTypeNotInterface" xml:space="preserve">
+    <value>Property '{0}' has invalid value. Type should be an Interface.</value>
+  </data>
+  <data name="Error_InvalidCAGActivityType" xml:space="preserve">
+    <value>The passed activity is not of CAG type.</value>
+  </data>
+  <data name="Error_InvalidCompositeStateChild" xml:space="preserve">
+    <value>'{0}' or '{1}' activities that contains other '{1}' activities can only contain '{1}' or '{2}' activities.</value>
+  </data>
+  <data name="Error_InvalidEventArgsSignature" xml:space="preserve">
+    <value>The event {0} has to be of type EventHandler where T derives from ExternalDataEventArgs</value>
+  </data>
+  <data name="Error_InvalidEventMessage" xml:space="preserve">
+    <value>Activity '{0}' received a null message</value>
+  </data>
+  <data name="Error_InvalidEventPropertyName" xml:space="preserve">
+    <value>Invalid parameter name {0}, name does not match any of the properties of event args</value>
+  </data>
+  <data name="Error_InvalidIdentifier" xml:space="preserve">
+    <value>Property '{0}' has invalid value. {1}</value>
+  </data>
+  <data name="Error_InvalidLanguageIdentifier" xml:space="preserve">
+    <value>The identifier '{0}' is not a valid language-independent identifier name.</value>
+  </data>
+  <data name="Error_InvalidLeafStateChild" xml:space="preserve">
+    <value>'{0}' activity can only contain '{0}', '{1}', '{2}' or '{3}' activities.</value>
+  </data>
+  <data name="Error_InvalidLocalServiceMessage" xml:space="preserve">
+    <value>Invalid message, please raise the event on the local service implementation.</value>
+  </data>
+  <data name="Error_InvalidMethodPropertyName" xml:space="preserve">
+    <value>Invalid parameter name {0}, name does not match any of the method parameter names</value>
+  </data>
+  <data name="Error_InvalidStateActivityParent" xml:space="preserve">
+    <value>Parent of '{0}' must also be a '{0}'.</value>
+  </data>
+  <data name="Error_InvalidTargetStateInStateInitialization" xml:space="preserve">
+    <value>{0}.{1} property must point to a different {2} than the containing {2} when used inside a {3}.</value>
+  </data>
+  <data name="Error_ListenLessThanTwoChildren" xml:space="preserve">
+    <value>A ListenActivity must contain more than one EventDrivenActivity.</value>
+  </data>
+  <data name="Error_ListenNotAllEventDriven" xml:space="preserve">
+    <value>All child activities must be of type EventDrivenActivity.</value>
+  </data>
+  <data name="Error_MethodNotExists" xml:space="preserve">
+    <value>Property '{0}' has invalid value. Method '{1}' does not exist.</value>
+  </data>
+  <data name="Error_MisMatchCorrelationTokenOwnerNameProperty" xml:space="preserve">
+    <value>The correlation token "{0}" has an owner activity name which does not match with the initializer activity's correlation token</value>
+  </data>
+  <data name="Error_MissingConditionName" xml:space="preserve">
+    <value>Evaluation of activity '{0}' cannot proceed with a null or empty condition name.</value>
+  </data>
+  <data name="Error_MissingCorrelationParameterAttribute" xml:space="preserve">
+    <value>Interface '{0}' does not have correlation parameter attribute.</value>
+  </data>
+  <data name="Error_MissingCorrelationTokenOwnerNameProperty" xml:space="preserve">
+    <value>The correlation token for Activity {0} has an invalid owner activity name</value>
+  </data>
+  <data name="Error_MissingCorrelationTokenProperty" xml:space="preserve">
+    <value>Activity '{0}' does not have CorrelationToken property set</value>
+  </data>
+  <data name="Error_MissingEventName" xml:space="preserve">
+    <value>The activity '{0}' must return a valid event name. Property {1} returns an invalid string.</value>
+  </data>
+  <data name="Error_MissingInterfaceType" xml:space="preserve">
+    <value>Failed to execute activity due to missing (null) interface type value.</value>
+  </data>
+  <data name="Error_MissingMethodName" xml:space="preserve">
+    <value>The activity '{0}' must return a valid method name. Property {1} returns an invalid string.</value>
+  </data>
+  <data name="Error_MissingRuleConditions" xml:space="preserve">
+    <value>Evaluation conditions collection cannot be null.</value>
+  </data>
+  <data name="Error_MissingValidationProperty" xml:space="preserve">
+    <value>Validation property not specified.</value>
+  </data>
+  <data name="Error_MoreThanOneEventHandlersDecl" xml:space="preserve">
+    <value>{0} can have only one EventHandlersActivity.</value>
+  </data>
+  <data name="Error_MoreThanTwoActivitiesInEventHandlingScope" xml:space="preserve">
+    <value>EventHandlingScopeActivity can contain at most two children, one of which should be the EventHandlersActivity.</value>
+  </data>
+  <data name="Error_MultiDimensionalArray" xml:space="preserve">
+    <value>The array is multidimensional.</value>
+  </data>
+  <data name="Error_MultipleStateHandlerActivities" xml:space="preserve">
+    <value>Only one {0} is allowed per {1}.</value>
+  </data>
+  <data name="Error_MustHaveParent" xml:space="preserve">
+    <value>This activity cannot be executed stand alone, it must be nested inside a activity.</value>
+  </data>
+  <data name="Error_NegativeValue" xml:space="preserve">
+    <value>'{0}' is not a valid value for '{1}'. '{1}' must be greater than or equal to 0.</value>
+  </data>
+  <data name="Error_NestedConstrainedGroupConditions" xml:space="preserve">
+    <value>Property '{0}' has invalid value. Condition handler can not be within the child activity.</value>
+  </data>
+  <data name="Error_NoInstanceInSession" xml:space="preserve">
+    <value>Current session has no workflow instance associated with it. Send activation message to start new instance in current session.</value>
+  </data>
+  <data name="Error_NoMatchingActiveDirectoryEntry" xml:space="preserve">
+    <value>No matching entries found in the Active Directory.</value>
+  </data>
+  <data name="Error_OutRefParameterNotSupported" xml:space="preserve">
+    <value>Method/delegate {0} is invalid. Methods with out/retval are not supported. Parameter {1} is an out/retval parameter.</value>
+  </data>
+  <data name="Error_OwnerActivityIsNotParent" xml:space="preserve">
+    <value>The correlation token for Activity {0} has an owner activity name which is not its parent</value>
+  </data>
+  <data name="Error_ParallelLessThanTwoChildren" xml:space="preserve">
+    <value>A ParallelActivity must have more than one SequenceActivity.</value>
+  </data>
+  <data name="Error_ParallelNotAllSequence" xml:space="preserve">
+    <value>All children must be of type SequenceActivity.</value>
+  </data>
+  <data name="Error_ParameterNotFound" xml:space="preserve">
+    <value>Cannot find property '{0}' on the target activity.</value>
+  </data>
+  <data name="Error_ParameterPropertyNotSet" xml:space="preserve">
+    <value>Parameter '{0}' is invalid. Property '{1}' is not set or its value is invalid.</value>
+  </data>
+  <data name="Error_ParameterTypeNotFound" xml:space="preserve">
+    <value>The type for parameter '{1}' of method '{0}' could not be resolved. Are you missing an assembly or namespace reference?</value>
+  </data>
+  <data name="Error_ParameterTypeResolution" xml:space="preserve">
+    <value>Could not resolve the parameter type for parameter {0}.</value>
+  </data>
+  <data name="Error_PropertyNotSet" xml:space="preserve">
+    <value>Property '{0}' is not set.</value>
+  </data>
+  <data name="Error_ReplicatorCannotCancelChild" xml:space="preserve">
+    <value>Specified child cannot be cancelled at this time.</value>
+  </data>
+  <data name="Error_ReplicatorChildRunning" xml:space="preserve">
+    <value>This operation is not supported when there are active child activities.</value>
+  </data>
+  <data name="Error_ReplicatorDisconnected" xml:space="preserve">
+    <value>The current child instance list is not associated with an active ReplicatorActivity.</value>
+  </data>
+  <data name="Error_ReplicatorInvalidExecutionType" xml:space="preserve">
+    <value>Invalid execution type specified for replicator.</value>
+  </data>
+  <data name="Error_ReplicatorNotExecuting" xml:space="preserve">
+    <value>This operation is supported only when the ReplicatorActivity is 'Executing'.</value>
+  </data>
+  <data name="Error_ReplicatorNotInitialized" xml:space="preserve">
+    <value>This operation is not supported when replicator is not initialized.</value>
+  </data>
+  <data name="Error_ReturnTypeNotFound" xml:space="preserve">
+    <value>The return type of method '{0}' could not be resolved. Are you missing an assembly or namespace reference?</value>
+  </data>
+  <data name="Error_ReturnTypeNotVoid" xml:space="preserve">
+    <value>Method/delegate {0} is invalid. It should not have a return type.</value>
+  </data>
+  <data name="Error_RoleProviderNotAvailableOrEnabled" xml:space="preserve">
+    <value>The RoleProvider '{0}' is not available or enabled for this application.</value>
+  </data>
+  <data name="Error_SenderMustBeActivityExecutionContext" xml:space="preserve">
+    <value>The sender parameter must be of type '{0}'.</value>
+  </data>
+  <data name="Error_ServiceMissingExternalDataExchangeInterface" xml:space="preserve">
+    <value>Service does not implement an interface with the ExternalDataExchange attribute.</value>
+  </data>
+  <data name="Error_ServiceNotFound" xml:space="preserve">
+    <value>Could not find service of type '{0}' through the currently configured services. Consider adding the service to ExternalDataExchangeService.</value>
+  </data>
+  <data name="Error_SetStateMustPointToALeafNodeState" xml:space="preserve">
+    <value>'{0}' property must point to a '{1}' activity that does not contain other states.</value>
+  </data>
+  <data name="Error_SetStateMustPointToAState" xml:space="preserve">
+    <value>'{0}' property must point to a valid '{1}' activity.</value>
+  </data>
+  <data name="Error_SetStateOnlyWorksOnStateMachineWorkflow" xml:space="preserve">
+    <value>'{0}' activity must be contained in an '{1}' or '{2}' activity that is contained inside a '{3}' or a '{4}'-based custom activity.</value>
+  </data>
+  <data name="Error_StateActivityMustBeContainedInAStateMachine" xml:space="preserve">
+    <value>Cannot initialize '{0}' that is not contained in a '{1}' that defines a '{2}' property.</value>
+  </data>
+  <data name="Error_StateChildNotFound" xml:space="preserve">
+    <value>Activity or Activity Name passed in is not a valid child activity.</value>
+  </data>
+  <data name="Error_StateHandlerParentNotState" xml:space="preserve">
+    <value>{0} must be contained in a {1}.</value>
+  </data>
+  <data name="Error_StateMachineWorkflowMustBeARootActivity" xml:space="preserve">
+    <value>It is not allowed to use '{0}' inside other activities. It must be a root activity.</value>
+  </data>
+  <data name="Error_TypeIsNotRootActivity" xml:space="preserve">
+    <value>Property '{0}' has invalid value. The root activity type is invalid.</value>
+  </data>
+  <data name="Error_TypeNotExist" xml:space="preserve">
+    <value>Property '{0}' has invalid value. Type '{1}' does not exist. Are you missing an assembly reference?</value>
+  </data>
+  <data name="Error_TypeNotPublic" xml:space="preserve">
+    <value>Property '{0}' has invalid value. Type '{1}' should be a public type.</value>
+  </data>
+  <data name="Error_TypeNotPublicSerializable" xml:space="preserve">
+    <value>Parameter {0} of type {1} should be a public, serializable type.</value>
+  </data>
+  <data name="Error_TypeNotResolved" xml:space="preserve">
+    <value>The type '{0}' could not be resolved.</value>
+  </data>
+  <data name="Error_TypePropertyInvalid" xml:space="preserve">
+    <value>Property '{0}' is not set or its value cannot be resolved to an actual type.</value>
+  </data>
+  <data name="Error_UnexpectedArgumentType" xml:space="preserve">
+    <value>Argument is not of type {0}.</value>
+  </data>
+  <data name="Error_UninitializedCorrelation" xml:space="preserve">
+    <value>The correlation may be uninitialized.</value>
+  </data>
+  <data name="Error_UnknownConfigurationParameter" xml:space="preserve">
+    <value>Unknown configuration parameter'{0}'.</value>
+  </data>
+  <data name="Error_WebServiceFaultNotNeeded" xml:space="preserve">
+    <value>WebServiceFaultActivity should not be configured for WebServiceInputActivity that has no out parameters or return value.</value>
+  </data>
+  <data name="Error_WebServiceInputNotProcessed" xml:space="preserve">
+    <value>WebServiceOutputActivity cannot reply since {0} has not been executed.</value>
+  </data>
+  <data name="Error_WebServiceReceiveNotConfigured" xml:space="preserve">
+    <value>WebServiceReceive {0} is not configured correctly.</value>
+  </data>
+  <data name="Error_WebServiceReceiveNotFound" xml:space="preserve">
+    <value>WebServiceInputActivity {0} not found in the preceding activities.</value>
+  </data>
+  <data name="Error_WebServiceReceiveNotMarkedActivate" xml:space="preserve">
+    <value>IsActivating property should be set to 'True' for the first executable WebServiceInputActivity.</value>
+  </data>
+  <data name="Error_WebServiceReceiveNotValid" xml:space="preserve">
+    <value>Activity '{0}' must be a WebServiceInputActivity.</value>
+  </data>
+  <data name="Error_WebServiceResponseNotFound" xml:space="preserve">
+    <value>Missing corresponding WebServiceOutputActivity/WebServiceFaultActivity.</value>
+  </data>
+  <data name="Error_WebServiceResponseNotNeeded" xml:space="preserve">
+    <value>WebServiceOutputActivity should not be configured for a WebServiceInputActivity that has no out parameters or return value.</value>
+  </data>
+  <data name="Error_WhileShouldHaveOneChild" xml:space="preserve">
+    <value>WhileActivity should have one child activity.</value>
+  </data>
+  <data name="Error_WorkflowCompleted" xml:space="preserve">
+    <value>Workflow completed unexpectedly while processing the current request.</value>
+  </data>
+  <data name="Error_WorkflowTerminated" xml:space="preserve">
+    <value>Workflow terminated unexpectedly while processing the current request.</value>
+  </data>
+  <data name="EventDrivenActivityDescription" xml:space="preserve">
+    <value>Enables execution of contained activities based on an event.</value>
+  </data>
+  <data name="EventHandlingScopeActivityDescription" xml:space="preserve">
+    <value>Enables event handling with the execution of the child activities.</value>
+  </data>
+  <data name="EventInfoMissing" xml:space="preserve">
+    <value>EventInfo cannot be found for event name {0} on interface type name {1}</value>
+  </data>
+  <data name="EventNameMissing" xml:space="preserve">
+    <value>Event name needs to be specified for activity {0}</value>
+  </data>
+  <data name="EventSink" xml:space="preserve">
+    <value>EventSink</value>
+  </data>
+  <data name="ExecutionTypeDescr" xml:space="preserve">
+    <value>Specify the execution mode for the activity.</value>
+  </data>
+  <data name="ExpressionDescr" xml:space="preserve">
+    <value>Please specify method to evaluate the condition.</value>
+  </data>
+  <data name="ExternalEventNameDescr" xml:space="preserve">
+    <value>Please specify the event name from the selected interface.</value>
+  </data>
+  <data name="ExternalMethodNameDescr" xml:space="preserve">
+    <value>Please specify the method name from the selected interface.</value>
+  </data>
+  <data name="FilterDescription_InvokeWorkflow" xml:space="preserve">
+    <value>Showing types which are activities.</value>
+  </data>
+  <data name="ForegroundCategory" xml:space="preserve">
+    <value>Foreground</value>
+  </data>
+  <data name="General_MissingService" xml:space="preserve">
+    <value>The service '{0}' must be installed for this operation to succeed.  Ensure that this service is available.</value>
+  </data>
+  <data name="HandleExternalEventActivityDescription" xml:space="preserve">
+    <value>Enables receiving an event in Workflow.</value>
+  </data>
+  <data name="Handlers" xml:space="preserve">
+    <value>Handlers</value>
+  </data>
+  <data name="HelperExternalDataExchangeDesc" xml:space="preserve">
+    <value>Please select an interface type marked with an ExternalDataExchangeAttribute.</value>
+  </data>
+  <data name="In" xml:space="preserve">
+    <value>in</value>
+  </data>
+  <data name="InitialChildDataDescr" xml:space="preserve">
+    <value>Specify the collection which will contain initial child instance data for the replicator.</value>
+  </data>
+  <data name="InitialStateDescription" xml:space="preserve">
+    <value>Please specify the initial state for the state machine.</value>
+  </data>
+  <data name="InitialStateImagePathDescription" xml:space="preserve">
+    <value>Initial state image.</value>
+  </data>
+  <data name="InitializeCaleeDescr" xml:space="preserve">
+    <value>Please specify the method which will be called to initialize the invoked workflow instance object.</value>
+  </data>
+  <data name="InterfaceTypeDescription" xml:space="preserve">
+    <value>Interface type</value>
+  </data>
+  <data name="InterfaceTypeFilterDescription" xml:space="preserve">
+    <value>Showing interface types.</value>
+  </data>
+  <data name="InterfaceTypeMissing" xml:space="preserve">
+    <value>Interface type needs to be specified for activity {0}</value>
+  </data>
+  <data name="InvalidActivityStatus" xml:space="preserve">
+    <value>Invalid activity status '{0}' for activity '{1}'.</value>
+  </data>
+  <data name="InvalidSetStateInStateInitialization" xml:space="preserve">
+    <value>'{0}' cannot be used inside a '{1}' to set the state to the current state.</value>
+  </data>
+  <data name="InvalidStateMachineAction" xml:space="preserve">
+    <value>'{0}' internal error: found '{1}' for a state that is not executing '{2}'</value>
+  </data>
+  <data name="InvalidStateTransitionPath" xml:space="preserve">
+    <value>Invalid internal state machine execution state. The calculated execution path to the current state does not match the actual activity tree. </value>
+  </data>
+  <data name="InvalidTimespanFormat" xml:space="preserve">
+    <value>Input string '{0}' is not in the format recognized by 'TimeSpan'.</value>
+  </data>
+  <data name="InvalidUserDataInStateChangeTrackingRecord" xml:space="preserve">
+    <value>Invalid user data in '{0}' tracking record. User data must be a '{1}' qualified name.</value>
+  </data>
+  <data name="InvokeParameterDescription" xml:space="preserve">
+    <value>Please specify a value for property of type '{0}'.</value>
+  </data>
+  <data name="InvokeWebServiceActivityDescription" xml:space="preserve">
+    <value>Enables invocation of WebService from within Workflow.</value>
+  </data>
+  <data name="InvokeWorkflowActivityDescription" xml:space="preserve">
+    <value>Enables execution of specified workflow using asynchronous Execute.</value>
+  </data>
+  <data name="ListenActivityDescription" xml:space="preserve">
+    <value>Enables execution of contained activities based on specified amount of delay or an event.</value>
+  </data>
+  <data name="MethodInfoMissing" xml:space="preserve">
+    <value>MethodInfo cannot be found for method name {0} on interface type name {1}</value>
+  </data>
+  <data name="MethodNameDescr" xml:space="preserve">
+    <value>Please specify the method name of the proxy class, which will be called on the web service.</value>
+  </data>
+  <data name="MethodNameMissing" xml:space="preserve">
+    <value>Method name needs to be specified for activity {0}</value>
+  </data>
+  <data name="MoveSetState" xml:space="preserve">
+    <value>Move '{0}'.</value>
+  </data>
+  <data name="NameDescr" xml:space="preserve">
+    <value>Please specify the identifier of the activity. It has to be unique in the workflow.</value>
+  </data>
+  <data name="OnAfterMethodInvokeDescr" xml:space="preserve">
+    <value>Please specify the method to be called after the activity is executed.</value>
+  </data>
+  <data name="OnAfterReceiveDescr" xml:space="preserve">
+    <value>Please specify the method which will be called after WebServiceInputActivity is executed.</value>
+  </data>
+  <data name="OnBeforeFaultingDescr" xml:space="preserve">
+    <value>Please specify the method which will be called before WebServiceFaultActivity is executed.</value>
+  </data>
+  <data name="OnBeforeMethodInvokeDescr" xml:space="preserve">
+    <value>Please specify the method to be called before the activity is executed.</value>
+  </data>
+  <data name="OnBeforeResponseDescr" xml:space="preserve">
+    <value>Please specify the method which will be called before WebServiceOutputActivity is executed.</value>
+  </data>
+  <data name="OnCompletedDescr" xml:space="preserve">
+    <value>Please specify the method which will be called before completion.</value>
+  </data>
+  <data name="OnGeneratorChildCompletedDescr" xml:space="preserve">
+    <value>Please specify the method which will be called on completion of an instance of the child activity.</value>
+  </data>
+  <data name="OnGeneratorChildInitializedDescr" xml:space="preserve">
+    <value>Please specify the method which will be called on initialization of an instance of the child activity.</value>
+  </data>
+  <data name="OnInitializedDescr" xml:space="preserve">
+    <value>Please specify the method which will be called before activity starts executing.</value>
+  </data>
+  <data name="Optional" xml:space="preserve">
+    <value>optional</value>
+  </data>
+  <data name="Out" xml:space="preserve">
+    <value>out</value>
+  </data>
+  <data name="ParallelActivityDescription" xml:space="preserve">
+    <value>Enables parallel execution of contained activities.</value>
+  </data>
+  <data name="ParameterDescription" xml:space="preserve">
+    <value>Please specify a value for parameter of type '{0}'.</value>
+  </data>
+  <data name="Parameters" xml:space="preserve">
+    <value>Parameters</value>
+  </data>
+  <data name="PolicyActivityDescription" xml:space="preserve">
+    <value>Performs action based on the set of associated rules.</value>
+  </data>
+  <data name="Properties" xml:space="preserve">
+    <value>Properties</value>
+  </data>
+  <data name="ProxyClassDescr" xml:space="preserve">
+    <value>Please specify the proxy class type, which will used to call web service.</value>
+  </data>
+  <data name="ReceiveActivityNameDescription" xml:space="preserve">
+    <value>Please select a preceding WebServiceInputActivity name.</value>
+  </data>
+  <data name="Ref" xml:space="preserve">
+    <value>ref</value>
+  </data>
+  <data name="ReplicatorActivityDescription" xml:space="preserve">
+    <value>Executes contained activities by creating specified number replicated instances.</value>
+  </data>
+  <data name="ReplicatorUntilConditionDescr" xml:space="preserve">
+    <value>Please specify the condition which causes the content activities of replicator activity to cease execute.</value>
+  </data>
+  <data name="Required" xml:space="preserve">
+    <value>required</value>
+  </data>
+  <data name="RoleDescr" xml:space="preserve">
+    <value>Please specify the roles against which incoming events will be validated.</value>
+  </data>
+  <data name="RuleConditionDisplayName" xml:space="preserve">
+    <value>Declarative Rule Condition</value>
+  </data>
+  <data name="RuleSetDefinitionDescription" xml:space="preserve">
+    <value>Please configure the rule set. This will update the rule set definition in the rules file.</value>
+  </data>
+  <data name="RuleSetDescription" xml:space="preserve">
+    <value>Please specify the rule set name.</value>
+  </data>
+  <data name="ScopeActivityDescription" xml:space="preserve">
+    <value>Executes contained activities by providing transaction, exception handling and event handling support.</value>
+  </data>
+  <data name="SequenceActivityDescription" xml:space="preserve">
+    <value>Enables execution of a group of activities in a sequence.</value>
+  </data>
+  <data name="SequentialWorkflow" xml:space="preserve">
+    <value>SequentialWorkflow</value>
+  </data>
+  <data name="SetStateActivityDescription" xml:space="preserve">
+    <value>Causes a state machine to transition to another state.</value>
+  </data>
+  <data name="ShowingExternalDataExchangeService" xml:space="preserve">
+    <value>Showing interfaces marked with an ExternalDataExchangeAttribute.</value>
+  </data>
+  <data name="SqlTrackingServiceRequired" xml:space="preserve">
+    <value>'{0}' property requires the '{1}' service.</value>
+  </data>
+  <data name="Standard" xml:space="preserve">
+    <value>Standard</value>
+  </data>
+  <data name="StateActivityDescription" xml:space="preserve">
+    <value>Represents a state in a state machine.</value>
+  </data>
+  <data name="StateAlreadySubscribesToThisEvent" xml:space="preserve">
+    <value>The '{0}' '{1}' cannot subscribe to the same event twice. '{2}'</value>
+  </data>
+  <data name="StateFinalizationActivityDescription" xml:space="preserve">
+    <value>Executes contained activities when leaving a state.</value>
+  </data>
+  <data name="StateInitializationActivityDescription" xml:space="preserve">
+    <value>Executes contained activities when entering a state.</value>
+  </data>
+  <data name="StateMachineWorkflow" xml:space="preserve">
+    <value>State Machine Workflow</value>
+  </data>
+  <data name="StateMachineWorkflowActivityDescription" xml:space="preserve">
+    <value>Represents a state machine.</value>
+  </data>
+  <data name="StateMachineWorkflowMustHaveACurrentState" xml:space="preserve">
+    <value>'{0}' must have a current state.</value>
+  </data>
+  <data name="StateMachineWorkflowRequired" xml:space="preserve">
+    <value>'{0}' can only be used with workflows based on '{1}'.</value>
+  </data>
+  <data name="TargetStateDescription" xml:space="preserve">
+    <value>Please specify the target state for this 'SetStateActivity' activity.</value>
+  </data>
+  <data name="TargetWorkflowDescr" xml:space="preserve">
+    <value>Type of the Workflow to invoke.</value>
+  </data>
+  <data name="TimeoutDurationDescription" xml:space="preserve">
+    <value>Specify the duration of delay. Timeout duration can be used with 'OnInitializeTimeout' handler to specify the timeout relative to current date and time. This property recognizes 'TimeSpan' format supported by 'TimeSpan.Parse' method.</value>
+  </data>
+  <data name="TimeoutInitializerDescription" xml:space="preserve">
+    <value>Please specify handler to initialize timeout duration.</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="TypeDescr" xml:space="preserve">
+    <value>Please specify the type.</value>
+  </data>
+  <data name="URLDescr" xml:space="preserve">
+    <value>Please specify the URL of the web service.</value>
+  </data>
+  <data name="UnableToTransitionToState" xml:space="preserve">
+    <value>Unable to transition to state '{0}'. State was not found.</value>
+  </data>
+  <data name="UndoSetAsCompletedState" xml:space="preserve">
+    <value>Set '{0}' as completed state.</value>
+  </data>
+  <data name="UndoSetAsInitialState" xml:space="preserve">
+    <value>Set '{0}' as initial state.</value>
+  </data>
+  <data name="UndoSwitchViews" xml:space="preserve">
+    <value>Switch views.</value>
+  </data>
+  <data name="UntilConditionDescr" xml:space="preserve">
+    <value>Please specify the Until condition for the activity. If not specified, the activity will execute until no more children are executing.</value>
+  </data>
+  <data name="UserCodeHandlerDescr" xml:space="preserve">
+    <value>Please specify the name of the user code method. This will be invoked by the runtime.</value>
+  </data>
+  <data name="Warning_AdditionalBindingsFound" xml:space="preserve">
+    <value>Additional bindings found in the 'ParameterBindingCollection'.</value>
+  </data>
+  <data name="WebServiceFaultActivityDescription" xml:space="preserve">
+    <value>Enables sending fault to WebService client from within Workflow.</value>
+  </data>
+  <data name="WebServiceMethodDescription" xml:space="preserve">
+    <value>Method name</value>
+  </data>
+  <data name="WebServiceReceiveActivityDescription" xml:space="preserve">
+    <value>Enables receiving data from WebService in Workflow.</value>
+  </data>
+  <data name="WebServiceResponseActivityDescription" xml:space="preserve">
+    <value>Enables sending data to WebService from within Workflow.</value>
+  </data>
+  <data name="WebServiceSessionIDDescr" xml:space="preserve">
+    <value>Please select a new session id or a session id used by preceding InvokeWebServiceActivity.</value>
+  </data>
+  <data name="WhenConditionDescr" xml:space="preserve">
+    <value>Please specify the When condition for the activity. If not specified, the activity will execute once.</value>
+  </data>
+  <data name="WhileActivityDescription" xml:space="preserve">
+    <value>Executes contained activities for specified amount of iterations.</value>
+  </data>
+  <data name="WhileConditionDescr" xml:space="preserve">
+    <value>Please specify the When condition which causes the content activities of while activity to execute.</value>
+  </data>
+  <data name="WorkflowAuthorizationException" xml:space="preserve">
+    <value>Authorization failed for message received for event activity {0}, from principal {1}.</value>
+  </data>
+</root>

@@ -1,0 +1,39 @@
+# .NET Framework 4.8's WF3 configuration classes, read by tools/framework_settings.cs: fields, and the strings and
+# integers each method loads, in IL order. Don't edit.
+
+[System.Workflow.ComponentModel] System.Workflow.ComponentModel.LocalAppContextSwitches
+  field useLegacyHashForXomlFileChecksum
+  method get_UseLegacyHashForXomlFileChecksum: "Switch.System.Workflow.ComponentModel.UseLegacyHashForXomlFileChecksum"
+
+[System.Workflow.ComponentModel] System.Workflow.ComponentModel.AppSettings
+  field DefaultXOMLMaximumNestedObjectDepth = 300
+  field settingsInitialized
+  field appSettingsLock
+  field allowXCode
+  field xomlMaximumNestedObjectDepth
+  field disableActivitySurrogateSelectorTypeCheck
+  field disableXOMLSerializerDefaultUnauthorizedTypes
+  field disableXOMLSerializerTypeChecking
+  field disableXOMLCompilerIdentifierValidation
+  method get_AllowXCode: 
+  method get_XOMLMaximumNestedObjectDepth: 
+  method get_DisableActivitySurrogateSelectorTypeCheck: 0
+  method get_DisableXOMLSerializerDefaultUnauthorizedTypes: 0
+  method get_DisableXOMLSerializerTypeChecking: 0
+  method get_DisableXOMLCompilerIdentifierValidation: 
+  method EnsureSettingsLoaded: 0, "microsoft:WorkflowComponentModel:XOMLAllowXCodeInDisabledActivities", 0, ->allowXCode, "microsoft:WorkflowComponentModel:XOMLMaximumNestedObjectDepth", 300, ->xomlMaximumNestedObjectDepth, "microsoft:WorkflowComponentModel:DisableActivitySurrogateSelectorTypeCheck", 0, ->disableActivitySurrogateSelectorTypeCheck, "microsoft:WorkflowComponentModel:DisableXOMLSerializerDefaultUnauthorizedTypes", 0, ->disableXOMLSerializerDefaultUnauthorizedTypes, "microsoft:WorkflowComponentModel:DisableXOMLSerializerTypeChecking", 0, ->disableXOMLSerializerTypeChecking, "microsoft:WorkflowComponentModel:DisableXOMLCompilerIdentifierValidation", 0, ->disableXOMLCompilerIdentifierValidation, 1, ->settingsInitialized
+  method .cctor: 0, ->settingsInitialized, ->appSettingsLock
+
+[System.Workflow.Runtime] System.Workflow.Runtime.AppSettings
+  field settingsInitialized
+  field appSettingsLock
+  field fipsRequired
+  method get_FIPSRequired: 
+  method EnsureSettingsLoaded: 0, "microsoft:WorkflowRuntime:FIPSRequired", 0, ->fipsRequired, 1, ->settingsInitialized
+  method .cctor: 0, ->settingsInitialized, ->appSettingsLock
+
+[System.Workflow.Runtime] System.Workflow.Runtime.LocalAppContextSwitches
+  field useLegacyHashForWorkflowDefinitionDispenserCacheKey
+  field useLegacyHashForSqlTrackingCacheKey
+  method get_UseLegacyHashForWorkflowDefinitionDispenserCacheKey: "Switch.System.Workflow.Runtime.UseLegacyHashForWorkflowDefinitionDispenserCacheKey"
+  method get_UseLegacyHashForSqlTrackingCacheKey: "Switch.System.Workflow.Runtime.UseLegacyHashForSqlTrackingCacheKey"

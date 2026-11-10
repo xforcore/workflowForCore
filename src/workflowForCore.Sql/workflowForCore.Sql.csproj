@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- workflowforcore-sql: creates the databases of SqlWorkflowPersistenceService and SqlTrackingService with .NET
+       Framework 4.8's own scripts, which System.Workflow.Runtime carries as resources, or writes the scripts out. On
+       .NET Framework they are in the framework's folder and run with sqlcmd; .NET has no such folder. workflowForCore's
+       own code. -->
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <OutputType>Exe</OutputType>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <PackAsTool>true</PackAsTool>
+    <ToolCommandName>workflowforcore-sql</ToolCommandName>
+    <PackageId>workflowForCore.Sql</PackageId>
+    <Description>workflowforcore-sql: creates the SQL Server databases of WF3's SqlWorkflowPersistenceService and SqlTrackingService with .NET Framework 4.8's scripts, for workflowForCore.</Description>
+    <!-- WF3's types are [Obsolete]. -->
+    <NoWarn>$(NoWarn);CS0618</NoWarn>
+    <!-- workflowForCore's own assembly: not Microsoft's identity (src/Directory.Build.props), and its own files. -->
+    <EnableDefaultCompileItems>true</EnableDefaultCompileItems>
+    <SignAssembly>false</SignAssembly>
+    <DelaySign>false</DelaySign>
+    <AssemblyVersion>$(Version.Split('-')[0]).0</AssemblyVersion>
+    <FileVersion>$(AssemblyVersion)</FileVersion>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <NoWarn>$(NoWarn);CS0618</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\workflowForCore.System.Workflow.Runtime\workflowForCore.System.Workflow.Runtime.csproj" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.9.0" />
+  </ItemGroup>
+
+</Project>
