@@ -28,3 +28,13 @@ request:
   from the runner's .NET Framework again, the strings (`tools/framework_data.cs`), the configuration keys
   (`tools/framework_settings.cs`) and the SQL scripts, and fails if the committed copies differ. Its artifact has
   them, to commit when something is added.
+
+## The suites
+
+| Suite | Tests | What it exercises |
+| --- | ---: | --- |
+| workflowForCore.Tests | 27 | `RuntimeTests` (18): the runtime's start and stop, creating instances (ids, definitions), input and output parameters (and that `Name`, a metadata property of Activity, isn't one), the names CompositeActivity gives unnamed activities, unhandled exceptions and `TerminateActivity`, terminating, suspending and resuming from the host and with `SuspendActivity`, validation failures, `GetWorkflow` and the loaded instances, the manual scheduler (the caller's thread, nothing until asked) and the default one (thread pool, ten instances). `ActivityTests` (9): IfElse, While and Parallel (in WF3's order), fault handlers and `ThrowActivity`, Delay with and without the manual scheduler's active timers, Listen, a state machine through its states (`StateMachineWorkflowInstance`, state initialization and finalization) and `SetState` from the host |
+
+**Latest run (10 Nov 2026, Linux x64, .NET 10, Release): 27 tests, 27 pass.** Written test first: before
+workflowForCore's delegate serialization, 22 passed; every While iteration and state terminated the instance with
+"Serializing delegates is not supported on this platform".

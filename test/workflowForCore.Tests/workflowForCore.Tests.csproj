@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- workflowForCore's tests, written from scratch (Microsoft published none for WF3). The same tests build for
+       net10.0, against workflowForCore's assemblies, and for net48, against .NET Framework 4.8's own System.Workflow.*
+       (Microsoft's reference assemblies to compile, the GAC to run): CI's Windows runner runs both, with the same
+       expected results (docs/TESTING.md). -->
+  <PropertyGroup>
+    <TargetFrameworks>net10.0;net48</TargetFrameworks>
+    <IsPackable>false</IsPackable>
+    <LangVersion>latest</LangVersion>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <!-- WF3's types are [Obsolete] ("use System.Activities"), on .NET Framework too. -->
+    <NoWarn>$(NoWarn);CS0618;SYSLIB0011;SYSLIB0050;SYSLIB0051</NoWarn>
+    <!-- WF3's own runtime is .NET Framework's on net48; tests that need to know say so (Platform.IsNetFramework). -->
+    <DefineConstants Condition="'$(TargetFramework)' == 'net48'">$(DefineConstants);NETFRAMEWORK48</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
+    <PackageReference Include="xunit" Version="2.9.3" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net10.0'">
+    <ProjectReference Include="..\..\src\workflowForCore.System.Workflow.ComponentModel\workflowForCore.System.Workflow.ComponentModel.csproj" />
+    <ProjectReference Include="..\..\src\workflowForCore.System.Workflow.Runtime\workflowForCore.System.Workflow.Runtime.csproj" />
+    <ProjectReference Include="..\..\src\workflowForCore.System.Workflow.Activities\workflowForCore.System.Workflow.Activities.csproj" />
+    <PackageReference Include="webForCore.Serialization.Formatters" Version="0.10.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.9.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net48'">
+    <Reference Include="System.Workflow.ComponentModel" />
+    <Reference Include="System.Workflow.Runtime" />
+    <Reference Include="System.Workflow.Activities" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+
+</Project>

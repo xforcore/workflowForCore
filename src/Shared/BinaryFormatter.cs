@@ -21,26 +21,32 @@ namespace WorkflowForCore.Serialization
     {
         private readonly Port.BinaryFormatter formatter;
 
+        // Delegates are written and read in .NET Framework's format (DelegateSerialization.cs): a selector and a binder
+        // of workflowForCore's come before the caller's, which the properties return as they were set.
         public BinaryFormatter()
         {
             this.formatter = new Port.BinaryFormatter();
+            SurrogateSelector = null;
+            Binder = null;
         }
 
         public BinaryFormatter(ISurrogateSelector selector, StreamingContext context)
+            : this()
         {
-            this.formatter = new Port.BinaryFormatter(selector, context);
+            SurrogateSelector = selector;
+            Context = context;
         }
 
         public ISurrogateSelector SurrogateSelector
         {
-            get => this.formatter.SurrogateSelector;
-            set => this.formatter.SurrogateSelector = value;
+            get => ((DelegateSurrogateSelector)this.formatter.SurrogateSelector).Next;
+            set => this.formatter.SurrogateSelector = new DelegateSurrogateSelector(value);
         }
 
         public SerializationBinder Binder
         {
-            get => this.formatter.Binder;
-            set => this.formatter.Binder = value;
+            get => ((DelegateBinder)this.formatter.Binder).Next;
+            set => this.formatter.Binder = new DelegateBinder(value);
         }
 
         public StreamingContext Context
