@@ -69,11 +69,15 @@ jobs:
           curl -sSfL -o "$RUNNER_TEMP/net48.nupkg" https://api.nuget.org/v3-flatcontainer/microsoft.netframework.referenceassemblies.net48/1.0.3/microsoft.netframework.referenceassemblies.net48.1.0.3.nupkg
           dotnet run tools/ci/check_assembly_identities.cs -- src/workflowForCore.System.Workflow.Activities/bin/Release/net10.0 "$RUNNER_TEMP/net48.nupkg"
 
+      - name: SQL Server
+        run: tools/ci/sqlserver.sh start
+
       - name: Test
         run: tools/ci/run-tests.sh "$RUNNER_TEMP/TestResults"
         env:
           # The instance state each build writes (InteropTests), to commit to test/workflowForCore.Tests/FrameworkData.
           WORKFLOWFORCORE_INSTANCES: ${{ runner.temp }}/instances
+          WORKFLOWFORCORE_SQLSERVER: Server=127.0.0.1,14333;User ID=sa;Password=workflowForCore-Test1!;TrustServerCertificate=true
 
       - name: Test summary
         if: always()
@@ -139,11 +143,17 @@ jobs:
           dotnet run tools/ci/check_assembly_identities.cs -- src/workflowForCore.System.Workflow.Activities/bin/Release/net10.0 \
             'C:\Windows\Microsoft.NET\assembly\GAC_MSIL' "$RUNNER_TEMP/net48.nupkg"
 
+      # SQL Server Express for the SQL persistence and tracking tests, at the Linux job's address.
+      - name: SQL Server
+        shell: pwsh
+        run: tools/ci/sqlserver-windows.ps1
+
       - name: Test
         run: tools/ci/run-tests.sh "$RUNNER_TEMP/TestResults"
         env:
           # The instance state each build writes (InteropTests), to commit to test/workflowForCore.Tests/FrameworkData.
           WORKFLOWFORCORE_INSTANCES: ${{ runner.temp }}/instances
+          WORKFLOWFORCORE_SQLSERVER: Server=127.0.0.1,14333;User ID=sa;Password=workflowForCore-Test1!;TrustServerCertificate=true
 
       - name: Test summary
         if: always()

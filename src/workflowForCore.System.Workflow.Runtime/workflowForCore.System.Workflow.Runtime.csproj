@@ -35,6 +35,10 @@
   <ItemGroup>
     <!-- .NET Framework 4.8's strings (tools/framework_data.cs), with the class .NET Framework's build generated for
          them. -->
+    <!-- .NET Framework 4.8's SQL scripts for SqlWorkflowPersistenceService and SqlTrackingService, which .NET Framework
+         has in its folder (%WINDIR%\Microsoft.NET\Framework\v4.0.30319\SQL\en) and .NET doesn't: read as data, byte for byte,
+         for workflowforcore-sql (src/workflowForCore.Sql) to create the databases with. -->
+    <EmbeddedResource Include="FrameworkData\Sql\*.sql" LogicalName="System.Workflow.Runtime.Sql.%(Filename)%(Extension)" />
     <EmbeddedResource Include="FrameworkData\System.Workflow.Runtime.ExecutionStringManager.resx" LogicalName="System.Workflow.Runtime.ExecutionStringManager.resources"
                       StronglyTypedLanguage="CSharp" StronglyTypedNamespace="System.Workflow.Runtime" StronglyTypedClassName="ExecutionStringManager"
                       StronglyTypedFileName="$(IntermediateOutputPath)ExecutionStringManager.g.cs" />

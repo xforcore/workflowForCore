@@ -4,6 +4,7 @@
     <Project Path="src/workflowForCore.System.Workflow.ComponentModel/workflowForCore.System.Workflow.ComponentModel.csproj" />
     <Project Path="src/workflowForCore.System.Workflow.Runtime/workflowForCore.System.Workflow.Runtime.csproj" />
     <Project Path="src/workflowForCore.System.Workflow.Activities/workflowForCore.System.Workflow.Activities.csproj" />
+    <Project Path="src/workflowForCore.Sql/workflowForCore.Sql.csproj" />
   </Folder>
   <Folder Name="/test/">
     <Project Path="test/workflowForCore.Tests/workflowForCore.Tests.csproj" />
