@@ -1,0 +1,5 @@
+[submodule "external/referencesource"]
+	path = external/referencesource
+	url = https://github.com/xforcore/referencesource.git
+	branch = workflowforcore
+	shallow = true
