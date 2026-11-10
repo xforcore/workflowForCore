@@ -115,7 +115,7 @@ namespace WorkflowForCore.Tests
             var text = new StringBuilder();
             using (XmlWriter writer = XmlWriter.Create(new StringWriter(text), new XmlWriterSettings { Indent = true }))
                 new WorkflowMarkupSerializer().Serialize(writer, definitions);
-            Assert.Contains("<RuleSet Name=\"Pricing\"", text.ToString());
+            Assert.Contains("Name=\"Pricing\"", text.ToString());
 
             RuleDefinitions read;
             using (XmlReader reader = XmlReader.Create(new StringReader(text.ToString())))

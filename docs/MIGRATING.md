@@ -23,3 +23,7 @@ same. What differs from .NET Framework 4.8 is listed here.
   `Activity.Save`/`Load` works: WF3 uses webForCore's in its place, with the same settings. Code that calls
   `BinaryFormatter.Serialize` itself should use `WebFormsForCore.Serialization.Formatters.Binary.BinaryFormatter`.
 - **No usage telemetry** is sent.
+- **Markup that names CodeDom types** (rules written with `WorkflowMarkupSerializer`, as a rule editor or dynamic
+  update saves them) names .NET's `System.CodeDom` assembly (`Assembly=System.CodeDom, Version=10.0.0.0`), where .NET
+  Framework names `System` 4.0.0.0. workflowForCore reads both; .NET Framework can't read the former. `.rules` files
+  Visual Studio wrote are read unchanged.
