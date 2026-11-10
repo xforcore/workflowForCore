@@ -2,7 +2,7 @@
 //
 // System.Workflow.ComponentModel's appSettings and AppContext switches. .NET Framework 4.8's assembly has these two
 // classes, and the Reference Source calls them, but doesn't include them. The names and defaults are .NET Framework
-// 4.8's, as tools/framework_settings.cs read them from its assembly (FrameworkData/settings.txt).
+// 4.8's, as tools/framework_settings.cs read them from its assembly (src/FrameworkData/settings.txt).
 using System.Collections.Specialized;
 using System.Configuration;
 
@@ -18,7 +18,8 @@ namespace System.Workflow.ComponentModel
             internal bool DisableActivitySurrogateSelectorTypeCheck;
             internal bool DisableXOMLSerializerTypeChecking;
             internal bool DisableXOMLSerializerDefaultUnauthorizedTypes;
-            internal int XOMLMaximumNestedObjectDepth = 300;
+            internal bool DisableXOMLCompilerIdentifierValidation;
+            internal int XOMLMaximumNestedObjectDepth = DefaultXOMLMaximumNestedObjectDepth;
         }
 
         internal static bool AllowXCode => values.Value.AllowXCode;
@@ -29,7 +30,11 @@ namespace System.Workflow.ComponentModel
 
         internal static bool DisableXOMLSerializerDefaultUnauthorizedTypes => values.Value.DisableXOMLSerializerDefaultUnauthorizedTypes;
 
+        internal const int DefaultXOMLMaximumNestedObjectDepth = 300;
+
         internal static int XOMLMaximumNestedObjectDepth => values.Value.XOMLMaximumNestedObjectDepth;
+
+        internal static bool DisableXOMLCompilerIdentifierValidation => values.Value.DisableXOMLCompilerIdentifierValidation;
 
         private static Values Read()
         {
@@ -44,11 +49,12 @@ namespace System.Workflow.ComponentModel
             }
             if (settings == null)
                 return v;
-            v.AllowXCode = Bool(settings, "microsoft:WorkflowComponentModel:AllowXCode", v.AllowXCode);
+            v.AllowXCode = Bool(settings, "microsoft:WorkflowComponentModel:XOMLAllowXCodeInDisabledActivities", v.AllowXCode);
             v.DisableActivitySurrogateSelectorTypeCheck = Bool(settings, "microsoft:WorkflowComponentModel:DisableActivitySurrogateSelectorTypeCheck", v.DisableActivitySurrogateSelectorTypeCheck);
             v.DisableXOMLSerializerTypeChecking = Bool(settings, "microsoft:WorkflowComponentModel:DisableXOMLSerializerTypeChecking", v.DisableXOMLSerializerTypeChecking);
             v.DisableXOMLSerializerDefaultUnauthorizedTypes = Bool(settings, "microsoft:WorkflowComponentModel:DisableXOMLSerializerDefaultUnauthorizedTypes", v.DisableXOMLSerializerDefaultUnauthorizedTypes);
-            if (int.TryParse(settings["microsoft:WorkflowComponentModel:XOMLMaximumNestedObjectDepth"], out int depth) && depth > 0)
+            v.DisableXOMLCompilerIdentifierValidation = Bool(settings, "microsoft:WorkflowComponentModel:DisableXOMLCompilerIdentifierValidation", v.DisableXOMLCompilerIdentifierValidation);
+            if (int.TryParse(settings["microsoft:WorkflowComponentModel:XOMLMaximumNestedObjectDepth"], out int depth))
                 v.XOMLMaximumNestedObjectDepth = depth;
             return v;
         }
