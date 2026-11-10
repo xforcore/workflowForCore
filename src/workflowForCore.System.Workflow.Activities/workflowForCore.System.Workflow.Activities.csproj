@@ -3,8 +3,6 @@
   <!-- System.Workflow.Activities (.NET Framework 4.8), from the external/referencesource submodule: Microsoft's
        Reference Source, compiled for .NET 10. Changes to Microsoft's files are commits on xforcore/referencesource's
        workflowforcore branch (docs/MODIFICATIONS.md); what isn't compiled, and why, is in docs/LIFT.md. -->
-  <!-- The skeleton: the assembly with its identity and .NET Framework 4.8's strings. Microsoft's files are compiled
-       from the next pull request (docs/LIFT.md). -->
   <PropertyGroup>
     <AssemblyName>System.Workflow.Activities</AssemblyName>
     <RootNamespace>System.Workflow.Activities</RootNamespace>
@@ -12,6 +10,27 @@
     <Description>System.Workflow.Activities for .NET 10 on Linux and Windows: Windows Workflow Foundation 3's activities, state machines, local services and rules, from Microsoft's .NET Framework 4.8 Reference Source.</Description>
     <Src>$(ReferenceSource)System.Workflow.Activities\</Src>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="$(Src)**\*.cs" Link="%(RecursiveDir)%(Filename)%(Extension)" />
+    <!-- The Visual Studio designer surface and the rule editor's dialogs (docs/LIFT.md, "Designers"). -->
+    <Compile Remove="$(Src)Designers\**" />
+    <Compile Remove="$(Src)Rules\Design\**" />
+    <!-- ASP.NET: the ASMX activities (InvokeWebService, WebServiceInput/Output/Fault) and their web service base class,
+         and the role provider for ASP.NET roles (phase 2, docs/LIFT.md). -->
+    <Compile Remove="$(Src)InvokeWebService.cs" />
+    <Compile Remove="$(Src)WebServiceReceive.cs" />
+    <Compile Remove="$(Src)WebServiceResponse.cs" />
+    <Compile Remove="$(Src)WebServiceFault.cs" />
+    <Compile Remove="$(Src)Executors\WorkflowWebService.cs" />
+    <Compile Remove="$(Src)Role\WebWorkflowRole.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- workflowForCore's own code: what .NET Framework's assembly has and the Reference Source doesn't (docs/MODIFICATIONS.md). -->
+    <Compile Include="workflowForCore\*.cs" />
+    <Compile Include="..\Shared\*.cs" Link="Shared\%(Filename)%(Extension)" />
+  </ItemGroup>
 
   <ItemGroup>
     <!-- .NET Framework 4.8's strings (tools/framework_data.cs), with the class .NET Framework's build generated for the

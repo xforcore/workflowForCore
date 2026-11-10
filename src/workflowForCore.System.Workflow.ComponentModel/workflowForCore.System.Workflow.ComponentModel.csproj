@@ -3,18 +3,46 @@
   <!-- System.Workflow.ComponentModel (.NET Framework 4.8), from the external/referencesource submodule: Microsoft's
        Reference Source, compiled for .NET 10. Changes to Microsoft's files are commits on xforcore/referencesource's
        workflowforcore branch (docs/MODIFICATIONS.md); what isn't compiled, and why, is in docs/LIFT.md. -->
-  <!-- The skeleton: the assembly with its identity and .NET Framework 4.8's strings. Microsoft's files are compiled
-       from the next pull request (docs/LIFT.md). -->
   <PropertyGroup>
     <AssemblyName>System.Workflow.ComponentModel</AssemblyName>
     <RootNamespace>System.Workflow.ComponentModel</RootNamespace>
     <PackageId>workflowForCore.ComponentModel</PackageId>
-    <Description>System.Workflow.ComponentModel for .NET 10 on Linux and Windows: Windows Workflow Foundation 3's activity model, from Microsoft's .NET Framework 4.8 Reference Source.</Description>
+    <Description>System.Workflow.ComponentModel for .NET 10 on Linux and Windows: Windows Workflow Foundation 3's activity model, validation and markup, from Microsoft's .NET Framework 4.8 Reference Source.</Description>
     <Src>$(ReferenceSource)System.Workflow.ComponentModel\</Src>
   </PropertyGroup>
 
   <ItemGroup>
-    <!-- .NET Framework 4.8's strings (tools/framework_data.cs). -->
+    <Compile Include="$(Src)**\*.cs" Link="%(RecursiveDir)%(Filename)%(Extension)" />
+    <!-- Visual Studio's designer surface: Windows Forms, GDI+ and System.Design (docs/LIFT.md, "Designers"). Five of its
+         files have types the runtime uses, and are compiled without their designer code. -->
+    <Compile Remove="$(Src)AuthoringOM\Design\**" />
+    <Compile Remove="$(Src)AuthoringOM\*Designer.cs" />
+    <Compile Remove="$(Src)AuthoringOM\Behaviors\*Designer.cs" />
+    <Compile Include="$(Src)AuthoringOM\Design\ActivityDesignerLayoutSerializers.cs" Link="AuthoringOM\Design\ActivityDesignerLayoutSerializers.cs" />
+    <Compile Include="$(Src)AuthoringOM\Design\DesignerHelpers.cs" Link="AuthoringOM\Design\DesignerHelpers.cs" />
+    <Compile Include="$(Src)AuthoringOM\Design\DesignerInterfaces.cs" Link="AuthoringOM\Design\DesignerInterfaces.cs" />
+    <Compile Include="$(Src)AuthoringOM\Design\PropertyDescriptors.cs" Link="AuthoringOM\Design\PropertyDescriptors.cs" />
+    <Compile Include="$(Src)AuthoringOM\Design\TypeConverters.cs" Link="AuthoringOM\Design\TypeConverters.cs" />
+    <!-- The CodeDom serializers Visual Studio writes code-beside with (System.Design's CodeDomSerializer isn't on .NET),
+         and the designer's component serialization. ActivityCodeDomSerializer is compiled for its MarkupFileName
+         attached property only. -->
+    <Compile Remove="$(Src)AuthoringOM\Serializer\*CodeDomSerializer.cs" />
+    <Compile Remove="$(Src)AuthoringOM\Serializer\ActivityCodeDomSerializationManager.cs" />
+    <Compile Remove="$(Src)AuthoringOM\Serializer\PropertySegmentSerializ*.cs" />
+    <Compile Include="$(Src)AuthoringOM\Serializer\ActivityCodeDomSerializer.cs" Link="AuthoringOM\Serializer\ActivityCodeDomSerializer.cs" />
+    <!-- The MSBuild task that compiles XOML in Visual Studio projects (phase 2). -->
+    <Compile Remove="$(Src)AuthoringOM\Compiler\CompileXomlTask.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- workflowForCore's own code: classes .NET Framework's assembly has and the Reference Source doesn't, and the
+         BinaryFormatter (docs/MODIFICATIONS.md). -->
+    <Compile Include="workflowForCore\*.cs" />
+    <Compile Include="..\Shared\*.cs" Link="Shared\%(Filename)%(Extension)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- .NET Framework 4.8's strings, read from its assembly (tools/framework_data.cs). -->
     <EmbeddedResource Include="FrameworkData\System.Workflow.ComponentModel.StringResources.resx" LogicalName="System.Workflow.ComponentModel.StringResources.resources" />
     <EmbeddedResource Include="FrameworkData\System.Workflow.ComponentModel.Compiler.StringResources.resx" LogicalName="System.Workflow.ComponentModel.Compiler.StringResources.resources" />
   </ItemGroup>
@@ -23,6 +51,7 @@
     <PackageReference Include="System.CodeDom" Version="10.0.0" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="10.0.0" />
     <PackageReference Include="System.Security.Permissions" Version="10.0.0" />
+    <!-- webForCore's BinaryFormatter (src/Shared/BinaryFormatter.cs), from webForCore's feed (nuget.config). -->
     <PackageReference Include="webForCore.Serialization.Formatters" Version="0.10.0" />
   </ItemGroup>
 
