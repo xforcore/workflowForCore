@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- The package an application references, as it would reference webForCore or drawingForCore: it brings the three
+       WF3 assemblies, each in a package of its own as .NET Framework's GAC had them (workflowForCore.ComponentModel,
+       workflowForCore.Runtime, workflowForCore.Activities). No assembly of its own. -->
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <PackageId>workflowForCore</PackageId>
+    <Description>Windows Workflow Foundation 3 (System.Workflow.ComponentModel, System.Workflow.Runtime and System.Workflow.Activities 4.0.0.0) for .NET 10 on Linux and Windows, from Microsoft's .NET Framework 4.8 Reference Source.</Description>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <NoWarn>$(NoWarn);NU5128</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\workflowForCore.System.Workflow.ComponentModel\workflowForCore.System.Workflow.ComponentModel.csproj" />
+    <ProjectReference Include="..\workflowForCore.System.Workflow.Runtime\workflowForCore.System.Workflow.Runtime.csproj" />
+    <ProjectReference Include="..\workflowForCore.System.Workflow.Activities\workflowForCore.System.Workflow.Activities.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,55 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- System.Workflow.Runtime (.NET Framework 4.8), from the external/referencesource submodule: Microsoft's Reference
+       Source, compiled for .NET 10. Changes to Microsoft's files are commits on xforcore/referencesource's
+       workflowforcore branch (docs/MODIFICATIONS.md); what isn't compiled, and why, is in docs/LIFT.md. -->
+  <PropertyGroup>
+    <AssemblyName>System.Workflow.Runtime</AssemblyName>
+    <RootNamespace>System.Workflow.Runtime</RootNamespace>
+    <PackageId>workflowForCore.Runtime</PackageId>
+    <Description>System.Workflow.Runtime for .NET 10 on Linux and Windows: Windows Workflow Foundation 3's runtime, hosting, persistence and tracking services, from Microsoft's .NET Framework 4.8 Reference Source.</Description>
+    <Src>$(ReferenceSource)System.Workflow.Runtime\</Src>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="$(Src)**\*.cs" Link="%(RecursiveDir)%(Filename)%(Extension)" />
+    <!-- Visual Studio's workflow debugger engine (docs/LIFT.md, "Debugger engine"). The attribute and interfaces that
+         activities and hosts name stay. -->
+    <Compile Remove="$(Src)DebugEngine\**" />
+    <Compile Include="$(Src)DebugEngine\IWorkflowDebuggerService.cs" Link="DebugEngine\IWorkflowDebuggerService.cs" />
+    <Compile Include="$(Src)DebugEngine\WorkflowDebuggerSteppingAttribute.cs" Link="DebugEngine\WorkflowDebuggerSteppingAttribute.cs" />
+    <!-- WF4 interop (System.Activities.Statements.Interop): System.Activities isn't on .NET (docs/LIFT.md). -->
+    <Compile Remove="$(Src)System\**" />
+    <!-- The ASP.NET module (phase 2, docs/LIFT.md). -->
+    <Compile Remove="$(Src)Hosting\WorkflowWebHostingModule.cs" />
+    <!-- The error codes the queuing service names in its exceptions (System.Messaging's enum, internal here). -->
+    <Compile Include="$(ReferenceSource)System.Messaging\System\Messaging\MessageQueueErrorCode.cs" Link="Shared\MessageQueueErrorCode.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- workflowForCore's own code: what .NET Framework's assembly has and the Reference Source doesn't (docs/MODIFICATIONS.md). -->
+    <Compile Include="workflowForCore\*.cs" />
+    <Compile Include="..\Shared\*.cs" Link="Shared\%(Filename)%(Extension)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- .NET Framework 4.8's strings (tools/framework_data.cs), with the class .NET Framework's build generated for
+         them. -->
+    <EmbeddedResource Include="FrameworkData\System.Workflow.Runtime.ExecutionStringManager.resx" LogicalName="System.Workflow.Runtime.ExecutionStringManager.resources"
+                      StronglyTypedLanguage="CSharp" StronglyTypedNamespace="System.Workflow.Runtime" StronglyTypedClassName="ExecutionStringManager"
+                      StronglyTypedFileName="$(IntermediateOutputPath)ExecutionStringManager.g.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\workflowForCore.System.Workflow.ComponentModel\workflowForCore.System.Workflow.ComponentModel.csproj" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="10.0.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.9.0" />
+    <!-- OLE DB connection strings for the SQL services (Windows only at run time, as on .NET Framework). -->
+    <PackageReference Include="System.Data.OleDb" Version="10.0.0" />
+    <!-- The runtime's performance counters (Windows only at run time, as on .NET Framework). -->
+    <PackageReference Include="System.Diagnostics.PerformanceCounter" Version="10.0.0" />
+    <PackageReference Include="System.Security.Permissions" Version="10.0.0" />
+    <PackageReference Include="webForCore.Serialization.Formatters" Version="0.10.0" />
+  </ItemGroup>
+
+</Project>
