@@ -33,8 +33,8 @@ request:
 
 | Suite | Tests | What it exercises |
 | --- | ---: | --- |
-| workflowForCore.Tests | 27 | `RuntimeTests` (18): the runtime's start and stop, creating instances (ids, definitions), input and output parameters (and that `Name`, a metadata property of Activity, isn't one), the names CompositeActivity gives unnamed activities, unhandled exceptions and `TerminateActivity`, terminating, suspending and resuming from the host and with `SuspendActivity`, validation failures, `GetWorkflow` and the loaded instances, the manual scheduler (the caller's thread, nothing until asked) and the default one (thread pool, ten instances). `ActivityTests` (9): IfElse, While and Parallel (in WF3's order), fault handlers and `ThrowActivity`, Delay with and without the manual scheduler's active timers, Listen, a state machine through its states (`StateMachineWorkflowInstance`, state initialization and finalization) and `SetState` from the host |
+| workflowForCore.Tests | 40 | `RuntimeTests` (18): the runtime's start and stop, creating instances (ids, definitions), input and output parameters (and that `Name`, a metadata property of Activity, isn't one), the names CompositeActivity gives unnamed activities, unhandled exceptions and `TerminateActivity`, terminating, suspending and resuming from the host and with `SuspendActivity`, validation failures, `GetWorkflow` and the loaded instances, the manual scheduler (the caller's thread, nothing until asked) and the default one (thread pool, ten instances). `ActivityTests` (9): IfElse, While and Parallel (in WF3's order), fault handlers and `ThrowActivity`, Delay with and without the manual scheduler's active timers, Listen, a state machine through its states (`StateMachineWorkflowInstance`, state initialization and finalization) and `SetState` from the host |
 
-**Latest run (10 Nov 2026, Linux x64, .NET 10, Release): 27 tests, 27 pass.** Written test first: before
+**Latest run (10 Nov 2026, Linux x64, .NET 10, Release): 40 tests, 40 pass.** Written test first: before
 workflowForCore's delegate serialization, 22 passed; every While iteration and state terminated the instance with
-"Serializing delegates is not supported on this platform".
+"Serializing delegates is not supported on this platform". Before the principal fix, every ExternalDataExchange event failed to be delivered.
