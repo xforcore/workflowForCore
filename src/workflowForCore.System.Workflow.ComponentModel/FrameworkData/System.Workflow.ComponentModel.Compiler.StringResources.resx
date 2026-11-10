@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- System.Workflow.ComponentModel.Compiler.StringResources: .NET Framework 4.8's strings, read from its System.Workflow.ComponentModel.dll by tools/framework_data.cs. Don't edit. -->
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Error_AssemblyRefNotLoaded" xml:space="preserve">
+    <value>Could not load types from '{0}'. {1}</value>
+  </data>
+  <data name="Error_BindingFlag" xml:space="preserve">
+    <value>{0} Flag is not supported in this context</value>
+  </data>
+  <data name="Error_CodeCompileUnitNotLoaded" xml:space="preserve">
+    <value>Could not load types from CodeCompileUnit. {0}</value>
+  </data>
+  <data name="Error_DuplicateAssemblyReference" xml:space="preserve">
+    <value>This assembly reference already exist with the Type System.</value>
+  </data>
+  <data name="Error_DuplicateCodeCompileUnit" xml:space="preserve">
+    <value>This CodeCompileUnit already exists in the TypeSystem.</value>
+  </data>
+  <data name="Error_GetMemberBindingOptions" xml:space="preserve">
+    <value>DesignType supports 'Public', 'NonPublic', 'Static', 'Instance' and 'DeclaredOnly' BindingFlags only.</value>
+  </data>
+  <data name="Error_NoCodeCompileUnit" xml:space="preserve">
+    <value>This code compile unit does not exist in the type system.</value>
+  </data>
+  <data name="Error_RuntimeNotSupported" xml:space="preserve">
+    <value>Runtime capabilities are not available with this type.</value>
+  </data>
+  <data name="Error_TypeIsNotArray" xml:space="preserve">
+    <value>Type is not an Array</value>
+  </data>
+  <data name="Error_TypeIsNotEnum" xml:space="preserve">
+    <value>enumType is not an Enum</value>
+  </data>
+  <data name="Error_TypeResolution" xml:space="preserve">
+    <value>Type name '{0}' could not be resolved to a valid Type.</value>
+  </data>
+</root>

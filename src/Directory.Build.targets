@@ -1,0 +1,12 @@
+<Project>
+  <!-- Compiled against what .NET Framework 4.8 had: .NET's System.Diagnostics.DiagnosticSource (in the shared
+       framework) adds System.Diagnostics.Activity, which makes WF3's own Activity ambiguous in Microsoft's files that
+       import both System.Diagnostics and System.Workflow.ComponentModel. Nothing in WF3 uses DiagnosticSource, so it
+       isn't referenced, and Microsoft's files compile unchanged. -->
+  <Target Name="WithoutDiagnosticSource" AfterTargets="ResolveTargetingPackAssets;ResolveAssemblyReferences" BeforeTargets="FindReferenceAssembliesForReferences">
+    <ItemGroup>
+      <Reference Remove="@(Reference)" Condition="'%(Filename)' == 'System.Diagnostics.DiagnosticSource'" />
+      <ReferencePath Remove="@(ReferencePath)" Condition="'%(Filename)' == 'System.Diagnostics.DiagnosticSource'" />
+    </ItemGroup>
+  </Target>
+</Project>

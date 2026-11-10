@@ -1,0 +1,613 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- System.Workflow.Runtime.ExecutionStringManager: .NET Framework 4.8's strings, read from its System.Workflow.Runtime.dll by tools/framework_data.cs. Don't edit. -->
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AsyncCallbackThrewException" xml:space="preserve">
+    <value>Async Callback threw an exception.</value>
+  </data>
+  <data name="AttemptToBindUnknownProperties" xml:space="preserve">
+    <value>The 'ActivityProperties' dictionary for the Interop activity '{0}' contains '{1}' which does not correspond to a bindable property on the activity type.</value>
+  </data>
+  <data name="CannotAbortBeforeStart" xml:space="preserve">
+    <value>Cannot abort a workflow that has not been started</value>
+  </data>
+  <data name="CannotCauseEventInEvent" xml:space="preserve">
+    <value>Cannot cause a WorkflowRuntime event to be raised while handling a WorkflowRuntimeEvent.</value>
+  </data>
+  <data name="CannotCreateRootActivity" xml:space="preserve">
+    <value>Can not create workflow definition.  WorkflowLoaderService failed to load.</value>
+  </data>
+  <data name="CannotResetIsPrivate" xml:space="preserve">
+    <value>IsPrivate cannot be reset from true to false</value>
+  </data>
+  <data name="CannotStartInstanceTwice" xml:space="preserve">
+    <value>Cannot start WorkflowInstance {0} more than once.</value>
+  </data>
+  <data name="CannotSuspendBeforeStart" xml:space="preserve">
+    <value>Cannot suspend a workflow that has not been started</value>
+  </data>
+  <data name="CantAddContainerToItself" xml:space="preserve">
+    <value>Cannot add a WorkflowRuntime to itself</value>
+  </data>
+  <data name="CantAddServiceTwice" xml:space="preserve">
+    <value>Cannot add the same service more than once</value>
+  </data>
+  <data name="CantBeEmptyGuid" xml:space="preserve">
+    <value>The identifier "{0}" cannot be set to Guid.Empty</value>
+  </data>
+  <data name="CantChangeImmutableContainer" xml:space="preserve">
+    <value>Cannot add or remove scheduler, persistence, tracking, or transaction services while workflow runtime is started.</value>
+  </data>
+  <data name="CantChangeNameAfterStart" xml:space="preserve">
+    <value>Cannot change the name of the WorkflowRuntime after it has been started.</value>
+  </data>
+  <data name="CantRemoveServiceNotContained" xml:space="preserve">
+    <value>Cannot remove service because it has not been added to the WorkflowRuntime.</value>
+  </data>
+  <data name="CompletedScopeNotFound" xml:space="preserve">
+    <value>Completed scope with id "{0}" not found in state persistence store.</value>
+  </data>
+  <data name="ConfigurationSectionNotFound" xml:space="preserve">
+    <value>The configuration section "{0}" cannot be found in the configuration file.</value>
+  </data>
+  <data name="CorrelationAlreadyInitialized" xml:space="preserve">
+    <value>Correlation value on declaration "{0}" is already initialized.</value>
+  </data>
+  <data name="DuplicateManualScheduleKey" xml:space="preserve">
+    <value>Cannot schedule item with duplicate key for {0}</value>
+  </data>
+  <data name="DynamicUpdateIsNotPending" xml:space="preserve">
+    <value>A WorkflowChange is already in progress.</value>
+  </data>
+  <data name="EndCalledTwice" xml:space="preserve">
+    <value>End cannot be called twice on an AsyncResult.</value>
+  </data>
+  <data name="Error_InsideAtomicScope" xml:space="preserve">
+    <value>Workflow changes are disallowed when a TransactionScopeActivity is being executed.</value>
+  </data>
+  <data name="EventQueueException" xml:space="preserve">
+    <value>Event Queue operation failed with MessageQueueErrorCode {0} for queue '{1}'.</value>
+  </data>
+  <data name="InstanceIDNotFound" xml:space="preserve">
+    <value>Unable to extract Instance ID for the current batch.</value>
+  </data>
+  <data name="InstanceNotFound" xml:space="preserve">
+    <value>Workflow with id "{0}" not found in state persistence store.</value>
+  </data>
+  <data name="InstanceOperationNotValidinWorkflowThread" xml:space="preserve">
+    <value>Instance operation is not valid on workflow runtime thread</value>
+  </data>
+  <data name="InteropArgumentDirectionMismatch" xml:space="preserve">
+    <value>The Argument '{0}' cannot be bound because of a direction mismatch. Interop expects the direction to be In but the Argument has a direction of Out. To bind Property '{0}' to an OutArgument, rename it to '{1}'.</value>
+  </data>
+  <data name="InteropBodyMustHavePublicDefaultConstructor" xml:space="preserve">
+    <value>The 'ActivityType' property for the Interop activity '{0}' must reference a System.Type that has a public, parameterless constructor.</value>
+  </data>
+  <data name="InteropBodyNestedPersistOnCloseWithinTransactionScope" xml:space="preserve">
+    <value>Cannot nest a System.Workflow.ComponentModel.Activity containing a PersistOnClose attribute within a System.Activities.Statements.TransactionScopeActivity or System.ServiceModel.Activities.TransactedReceiveActivity. This is not supported.</value>
+  </data>
+  <data name="InteropBodyNestedTransactionScope" xml:space="preserve">
+    <value>Cannot nest a System.Workflow.ComponentModel.TransactionScopeActivity within a System.Activities.Statements.TransactionScopeActivity or System.ServiceModel.Activities.TransactedReceiveActivity. This is not supported.</value>
+  </data>
+  <data name="InteropBodyNestedViolation" xml:space="preserve">
+    <value>The 'ActivityType' property for the Interop activity '{0}' cannot reference a System.Type corresponding to a {1} at a nested level.</value>
+  </data>
+  <data name="InteropBodyNotSet" xml:space="preserve">
+    <value>The 'ActivityType' property for the Interop activity '{0}' is not set.  This property must be set before the Interop activity can be used.</value>
+  </data>
+  <data name="InteropBodyRootLevelViolation" xml:space="preserve">
+    <value>The 'ActivityType' property for the Interop activity '{0}' cannot reference a System.Type corresponding to a {1} at the root level.</value>
+  </data>
+  <data name="InteropCantFindTimerExtension" xml:space="preserve">
+    <value>A TimerExtension must be added to the extensions collection.</value>
+  </data>
+  <data name="InteropExceptionTraceMessage" xml:space="preserve">
+    <value>An exception was thrown in the System.Workflow.ComponentModel.Activity invoked by the activity '{0}'. {1}</value>
+  </data>
+  <data name="InteropInvalidPropertyDescriptor" xml:space="preserve">
+    <value>The property descriptor is invalid; it refers to an Interop activity, whose 'ActivityType' property has been modified.</value>
+  </data>
+  <data name="InteropNonSupportedBehavior" xml:space="preserve">
+    <value>The workflow invoked by Interop '{0}' requires behavior which is not in the subset of behavior supported by the Interop activity. The workflow must be run standalone as a 3.x workflow.</value>
+  </data>
+  <data name="InteropTimerIdCantBeEmpty" xml:space="preserve">
+    <value>Timer Id must not be an empty Guid.</value>
+  </data>
+  <data name="InteropWorkflowRuntimeServiceNotSupported" xml:space="preserve">
+    <value>The Interop activity does not support extensions of type WorkflowRuntimeService except ExternalDataExchangeService.</value>
+  </data>
+  <data name="InteropWrongBody" xml:space="preserve">
+    <value>Incorrect value specified for the 'ActivityType' property of the Interop activity '{0}'.  The value of this property must be a System.Type that inherits from System.Workflow.ComponentModel.Activity.</value>
+  </data>
+  <data name="InvalidActivityEventReader" xml:space="preserve">
+    <value>The reader does not contain the expected number of results.</value>
+  </data>
+  <data name="InvalidActivityName" xml:space="preserve">
+    <value>Cannot find the activity with Name '{0}'.</value>
+  </data>
+  <data name="InvalidActivityTrackingRecordParameter" xml:space="preserve">
+    <value>Parameter is not of type ActivityTrackingRecord.</value>
+  </data>
+  <data name="InvalidArgumentType" xml:space="preserve">
+    <value>The argument '{0}' is not of the expected type '{1}'.</value>
+  </data>
+  <data name="InvalidAsyncResult" xml:space="preserve">
+    <value>Invalid async result.</value>
+  </data>
+  <data name="InvalidAttemptToLoad" xml:space="preserve">
+    <value>Cannot load a completed, terminated, or aborted instance.</value>
+  </data>
+  <data name="InvalidAttemptToSuspend" xml:space="preserve">
+    <value>Cannot suspend a workflow instance which has an atomic-transaction activity in progress.</value>
+  </data>
+  <data name="InvalidCacheItem" xml:space="preserve">
+    <value>Value is not CacheItem</value>
+  </data>
+  <data name="InvalidCommandBadConnection" xml:space="preserve">
+    <value>Connection must be open.</value>
+  </data>
+  <data name="InvalidConnection" xml:space="preserve">
+    <value>Connection is null or not open.</value>
+  </data>
+  <data name="InvalidDbConnection" xml:space="preserve">
+    <value>Unable to open database connection</value>
+  </data>
+  <data name="InvalidDefinitionReader" xml:space="preserve">
+    <value>The reader must contain 1 record.</value>
+  </data>
+  <data name="InvalidEnlist" xml:space="preserve">
+    <value>"Enlist" is not valid in the connection string.  Auto-enlisting is managed internally by the SqlTrackingService.</value>
+  </data>
+  <data name="InvalidEventSourceName" xml:space="preserve">
+    <value>EventSource cannot be null or empty.</value>
+  </data>
+  <data name="InvalidExecutionContext" xml:space="preserve">
+    <value>The ActivityExecutionContext no longer exists.</value>
+  </data>
+  <data name="InvalidMember" xml:space="preserve">
+    <value>Unable to find the requested member on the given type</value>
+  </data>
+  <data name="InvalidOpConnectionNotLocal" xml:space="preserve">
+    <value>Cannot reset the connection when the connection is shared.</value>
+  </data>
+  <data name="InvalidOpConnectionReset" xml:space="preserve">
+    <value>Cannot reset the connection when the transaction is non null.</value>
+  </data>
+  <data name="InvalidOperationRequest" xml:space="preserve">
+    <value>Operation requested on an instance that has been completed or terminated.</value>
+  </data>
+  <data name="InvalidOwnershipTimeoutValue" xml:space="preserve">
+    <value>SqlWorkflowPersistenceService ownership timeout value must be non-negative.</value>
+  </data>
+  <data name="InvalidProfileCheckValue" xml:space="preserve">
+    <value>The value for ProfileChangeCheckInterval must be greater than 0.</value>
+  </data>
+  <data name="InvalidProfileVersion" xml:space="preserve">
+    <value>Invalid Version.</value>
+  </data>
+  <data name="InvalidRevertRequest" xml:space="preserve">
+    <value>Cannot request revert of instance state without calling checkpoint first.</value>
+  </data>
+  <data name="InvalidSenderWorkflowExecutor" xml:space="preserve">
+    <value>sender must be of type WorkflowExecutor.</value>
+  </data>
+  <data name="InvalidSqlDataReader" xml:space="preserve">
+    <value>The reader is closed.</value>
+  </data>
+  <data name="InvalidStatus" xml:space="preserve">
+    <value>Invalid Status value.</value>
+  </data>
+  <data name="InvalidTrackingService" xml:space="preserve">
+    <value>Unable to locate entry for tracking service</value>
+  </data>
+  <data name="InvalidTransaction" xml:space="preserve">
+    <value>Transaction has completed or is invalid</value>
+  </data>
+  <data name="InvalidUserEventReader" xml:space="preserve">
+    <value>The reader does not contain the expected number of results.</value>
+  </data>
+  <data name="InvalidUserTrackingRecordParameter" xml:space="preserve">
+    <value>Parameter is not of type UserTrackingRecord.</value>
+  </data>
+  <data name="InvalidWaitForIdleOnSuspendedWorkflow" xml:space="preserve">
+    <value>EnqueueItemOnIdle cannot be called on suspended workflows.</value>
+  </data>
+  <data name="InvalidWorkflowChangeArgs" xml:space="preserve">
+    <value>WorkflowTrackingRecord.Args should not be null for the Change event.</value>
+  </data>
+  <data name="InvalidWorkflowChangeEventArgsParameter" xml:space="preserve">
+    <value>Parameter is not of type WorkflowTrackingRecord.</value>
+  </data>
+  <data name="InvalidWorkflowChangeEventArgsReader" xml:space="preserve">
+    <value>The reader does not contain the expect number of results.</value>
+  </data>
+  <data name="InvalidWorkflowEvent" xml:space="preserve">
+    <value>Invalid workflow event.</value>
+  </data>
+  <data name="InvalidWorkflowInstanceEventReader" xml:space="preserve">
+    <value>The reader does not contain the expected number of results.</value>
+  </data>
+  <data name="InvalidWorkflowInstanceInternalId" xml:space="preserve">
+    <value>Invalid WorkflowInstanceInternalId.</value>
+  </data>
+  <data name="InvalidWorkflowParameterValue" xml:space="preserve">
+    <value>Invalid workflow parameter value.</value>
+  </data>
+  <data name="InvalidWorkflowRuntimeConfiguration" xml:space="preserve">
+    <value>There can only be one service of type "{0}".</value>
+  </data>
+  <data name="InvalidWorkflowTrackingRecordParameter" xml:space="preserve">
+    <value>Parameter is not of type WorkflowTrackingRecord.</value>
+  </data>
+  <data name="InvalidXAML" xml:space="preserve">
+    <value>Can not create workflow definition.  Input markup is invalid.</value>
+  </data>
+  <data name="ItemAlreadyExist" xml:space="preserve">
+    <value>Item is already contained in the list.</value>
+  </data>
+  <data name="ListenerNotInCache" xml:space="preserve">
+    <value>TrackingListener for instance %0 is not in cache.</value>
+  </data>
+  <data name="ListenerNotInCacheDisposed" xml:space="preserve">
+    <value>TrackingListener for instance %0 has been disposed.</value>
+  </data>
+  <data name="LoadContextActivityFailed" xml:space="preserve">
+    <value>The call to LoadContextActivity() on the PersistenceService failed.</value>
+  </data>
+  <data name="LoadingIntervalTooLarge" xml:space="preserve">
+    <value>The loading interval may not be greater than 365 days</value>
+  </data>
+  <data name="MetaPropertyDoesNotExist" xml:space="preserve">
+    <value>Meta property '{0}' does not exist on activity type '{1}'.</value>
+  </data>
+  <data name="MissingActivityEvents" xml:space="preserve">
+    <value>At least one Activity Execution Status is required.</value>
+  </data>
+  <data name="MissingActivityType" xml:space="preserve">
+    <value>Either ActivityType or ActivityName is required.</value>
+  </data>
+  <data name="MissingArgumentType" xml:space="preserve">
+    <value>Either ArgumentType or ArgumentName is required.</value>
+  </data>
+  <data name="MissingConnectionString" xml:space="preserve">
+    <value>Connection string cannot be null or empty</value>
+  </data>
+  <data name="MissingMemberName" xml:space="preserve">
+    <value>Member cannot be null or empty.</value>
+  </data>
+  <data name="MissingParameters" xml:space="preserve">
+    <value>parameters</value>
+  </data>
+  <data name="MissingParametersTrack" xml:space="preserve">
+    <value>Invalid parameters - either InstanceId is empty or record is null</value>
+  </data>
+  <data name="MissingPersistenceService" xml:space="preserve">
+    <value>The workflow hosting environment does not have a persistence service as required by an operation on the workflow instance "{0}".</value>
+  </data>
+  <data name="MissingPersistenceServiceWithPersistOnClose" xml:space="preserve">
+    <value>Activity {0} is set to PersistOnClose but there is no WorkflowPersistenceService.</value>
+  </data>
+  <data name="MissingProfileForService" xml:space="preserve">
+    <value>A profile was not found for service type</value>
+  </data>
+  <data name="MissingProfileForVersion" xml:space="preserve">
+    <value> and versionId </value>
+  </data>
+  <data name="MissingTrackingService" xml:space="preserve">
+    <value>Could not get service instance for service type </value>
+  </data>
+  <data name="MissingWorkflowEvents" xml:space="preserve">
+    <value>Missing workflow events.</value>
+  </data>
+  <data name="MoreThanOneRuntime" xml:space="preserve">
+    <value>Cannot create more than one WorkflowRuntime per AppDomain.</value>
+  </data>
+  <data name="MoreThanOneService" xml:space="preserve">
+    <value>More than one runtime service exists of type "{0}".</value>
+  </data>
+  <data name="MustUseRuntimeThread" xml:space="preserve">
+    <value>This method can only be called on a runtime thread.</value>
+  </data>
+  <data name="NoChannels" xml:space="preserve">
+    <value>Channels collection is null or empty</value>
+  </data>
+  <data name="NoMatchingLocation" xml:space="preserve">
+    <value>MatchingLocation cannot be null.</value>
+  </data>
+  <data name="NoMatchingLocations" xml:space="preserve">
+    <value>MatchingLocations is null or empty.  At least one location is required.</value>
+  </data>
+  <data name="NoReaderLock" xml:space="preserve">
+    <value>Thread does not currently hold a reader lock</value>
+  </data>
+  <data name="NullAmbientTransaction" xml:space="preserve">
+    <value>Transaction.Current is null.  An ambient transaction must be present.</value>
+  </data>
+  <data name="NullChannel" xml:space="preserve">
+    <value>TrackingChannel is null</value>
+  </data>
+  <data name="NullEngine" xml:space="preserve">
+    <value>WorkflowEngine cannot be null</value>
+  </data>
+  <data name="NullParameters" xml:space="preserve">
+    <value>One or more parameter is null - parameters must be non null</value>
+  </data>
+  <data name="NullProfileForChannel" xml:space="preserve">
+    <value>Tracking Profile for channel for service type '{0} is null.</value>
+  </data>
+  <data name="NullTrackingBroker" xml:space="preserve">
+    <value>TrackingListenerBroker cannot be null</value>
+  </data>
+  <data name="OwnerActivityMissing" xml:space="preserve">
+    <value>Cannot resolve owner activity of CorrelationToken property.</value>
+  </data>
+  <data name="PerformanceCounterCategory" xml:space="preserve">
+    <value>Windows Workflow Foundation 4.0.0.0</value>
+  </data>
+  <data name="PerformanceCounterSchedulesAbortedDescription" xml:space="preserve">
+    <value>Total number of workflows aborted.</value>
+  </data>
+  <data name="PerformanceCounterSchedulesAbortedName" xml:space="preserve">
+    <value>Workflows Aborted</value>
+  </data>
+  <data name="PerformanceCounterSchedulesAbortedRateDescription" xml:space="preserve">
+    <value>Rate of workflows aborted per second.</value>
+  </data>
+  <data name="PerformanceCounterSchedulesAbortedRateName" xml:space="preserve">
+    <value>Workflows Aborted/sec</value>
+  </data>
+  <data name="PerformanceCounterSchedulesCompletedDescription" xml:space="preserve">
+    <value>Total number of workflows completed.</value>
+  </data>
+  <data name="PerformanceCounterSchedulesCompletedName" xml:space="preserve">
+    <value>Workflows Completed</value>
+  </data>
+  <data name="PerformanceCounterSchedulesCompletedRateDescription" xml:space="preserve">
+    <value>Rate of workflows completed per second.</value>
+  </data>
+  <data name="PerformanceCounterSchedulesCompletedRateName" xml:space="preserve">
+    <value>Workflows Completed/sec</value>
+  </data>
+  <data name="PerformanceCounterSchedulesCreatedDescription" xml:space="preserve">
+    <value>Total number of workflows created.</value>
+  </data>
+  <data name="PerformanceCounterSchedulesCreatedName" xml:space="preserve">
+    <value>Workflows Created</value>
+  </data>
+  <data name="PerformanceCounterSchedulesCreatedRateDescription" xml:space="preserve">
+    <value>Rate of workflows created per second.</value>
+  </data>
+  <data name="PerformanceCounterSchedulesCreatedRateName" xml:space="preserve">
+    <value>Workflows Created/sec</value>
+  </data>
+  <data name="PerformanceCounterSchedulesExecutingDescription" xml:space="preserve">
+    <value>Total number of workflow instances actively executing.</value>
+  </data>
+  <data name="PerformanceCounterSchedulesExecutingName" xml:space="preserve">
+    <value>Workflows Executing</value>
+  </data>
+  <data name="PerformanceCounterSchedulesIdleRateDescription" xml:space="preserve">
+    <value>Rate of workflows becoming idle per second.</value>
+  </data>
+  <data name="PerformanceCounterSchedulesIdleRateName" xml:space="preserve">
+    <value>Workflows Idle/sec</value>
+  </data>
+  <data name="PerformanceCounterSchedulesInMemoryDescription" xml:space="preserve">
+    <value>Total number of workflows in memory.</value>
+  </data>
+  <data name="PerformanceCounterSchedulesInMemoryName" xml:space="preserve">
+    <value>Workflows In Memory</value>
+  </data>
+  <data name="PerformanceCounterSchedulesLoadedDescription" xml:space="preserve">
+    <value>Total number of workflows loaded.</value>
+  </data>
+  <data name="PerformanceCounterSchedulesLoadedName" xml:space="preserve">
+    <value>Workflows Loaded</value>
+  </data>
+  <data name="PerformanceCounterSchedulesLoadedRateDescription" xml:space="preserve">
+    <value>Rate of workflows loaded per second.</value>
+  </data>
+  <data name="PerformanceCounterSchedulesLoadedRateName" xml:space="preserve">
+    <value>Workflows Loaded/sec</value>
+  </data>
+  <data name="PerformanceCounterSchedulesPersistedDescription" xml:space="preserve">
+    <value>Total number of workflows persisted.</value>
+  </data>
+  <data name="PerformanceCounterSchedulesPersistedName" xml:space="preserve">
+    <value>Workflows Persisted</value>
+  </data>
+  <data name="PerformanceCounterSchedulesPersistedRateDescription" xml:space="preserve">
+    <value>Rate of workflows persisted per second.</value>
+  </data>
+  <data name="PerformanceCounterSchedulesPersistedRateName" xml:space="preserve">
+    <value>Workflows Persisted/sec</value>
+  </data>
+  <data name="PerformanceCounterSchedulesRunnableDescription" xml:space="preserve">
+    <value>Total number of workflows ready to execute.</value>
+  </data>
+  <data name="PerformanceCounterSchedulesRunnableName" xml:space="preserve">
+    <value>Workflows Runnable</value>
+  </data>
+  <data name="PerformanceCounterSchedulesSuspendedDescription" xml:space="preserve">
+    <value>Total number of workflows suspended.</value>
+  </data>
+  <data name="PerformanceCounterSchedulesSuspendedName" xml:space="preserve">
+    <value>Workflows Suspended</value>
+  </data>
+  <data name="PerformanceCounterSchedulesSuspendedRateDescription" xml:space="preserve">
+    <value>Rate of workflows suspended per second.</value>
+  </data>
+  <data name="PerformanceCounterSchedulesSuspendedRateName" xml:space="preserve">
+    <value>Workflows Suspended/sec</value>
+  </data>
+  <data name="PerformanceCounterSchedulesTerminatedDescription" xml:space="preserve">
+    <value>Total number of workflows terminated.</value>
+  </data>
+  <data name="PerformanceCounterSchedulesTerminatedName" xml:space="preserve">
+    <value>Workflows Terminated</value>
+  </data>
+  <data name="PerformanceCounterSchedulesTerminatedRateDescription" xml:space="preserve">
+    <value>Rate of workflows terminated per second.</value>
+  </data>
+  <data name="PerformanceCounterSchedulesTerminatedRateName" xml:space="preserve">
+    <value>Workflows Terminated/sec</value>
+  </data>
+  <data name="PerformanceCounterSchedulesUnloadedDescription" xml:space="preserve">
+    <value>Total number of workflows unloaded.</value>
+  </data>
+  <data name="PerformanceCounterSchedulesUnloadedName" xml:space="preserve">
+    <value>Workflows Unloaded</value>
+  </data>
+  <data name="PerformanceCounterSchedulesUnloadedRateDescription" xml:space="preserve">
+    <value>Rate of workflows unloaded per second.</value>
+  </data>
+  <data name="PerformanceCounterSchedulesUnloadedRateName" xml:space="preserve">
+    <value>Workflows Unloaded/sec</value>
+  </data>
+  <data name="PerformanceCounterWorkflowsWaitingDescription" xml:space="preserve">
+    <value>Total number of workflows waiting for a thread.</value>
+  </data>
+  <data name="PerformanceCounterWorkflowsWaitingName" xml:space="preserve">
+    <value>Workflows Pending</value>
+  </data>
+  <data name="PersistenceException" xml:space="preserve">
+    <value>Error occurred while persisting workflow instance into the store.</value>
+  </data>
+  <data name="ProfileCacheInsertFailure" xml:space="preserve">
+    <value>Profile cache insert failure.</value>
+  </data>
+  <data name="ProfileIsNotPrivate" xml:space="preserve">
+    <value>Profile is not private</value>
+  </data>
+  <data name="PromotionNotSupported" xml:space="preserve">
+    <value>Promotion is not supported on local transaction.</value>
+  </data>
+  <data name="QueueBusyException" xml:space="preserve">
+    <value>The Queue '{0}' cannot be accessed since it is processing a transactional update.</value>
+  </data>
+  <data name="QueueNotEnabled" xml:space="preserve">
+    <value>Queue '{0}' is not enabled.</value>
+  </data>
+  <data name="QueueNotFound" xml:space="preserve">
+    <value>Queue with id "'{0}'" could not be found.</value>
+  </data>
+  <data name="RTProfileActCacheDupKey" xml:space="preserve">
+    <value>QualifiedId is already in the activities cache.</value>
+  </data>
+  <data name="RTProfileDynamicActCacheIsNull" xml:space="preserve">
+    <value>Workflow changes cache should not be null.</value>
+  </data>
+  <data name="SemanticErrorInvalidNamedParameter" xml:space="preserve">
+    <value>The activity '{0}' has no public writable property named '{1}'.</value>
+  </data>
+  <data name="ServiceAlreadyStarted" xml:space="preserve">
+    <value>The service of type {0} cannot be started because it has already been started.</value>
+  </data>
+  <data name="ServiceNotAddedToRuntime" xml:space="preserve">
+    <value>The service of type {0} has not been added to the WorkflowRuntime.</value>
+  </data>
+  <data name="ServiceNotStarted" xml:space="preserve">
+    <value>The service of type {0} cannot be stopped because it has not been started.</value>
+  </data>
+  <data name="SharedConnectionStringSpecificationConflict" xml:space="preserve">
+    <value>Connection string Specified for this service "{0}" is different from that of the transaction service "{1}".</value>
+  </data>
+  <data name="SqlTrackingTypeNotFound" xml:space="preserve">
+    <value>Type information for activity '{0}' was not found in the database.  The type may have been changed without versioning the assembly.</value>
+  </data>
+  <data name="TerminatedEventLogText" xml:space="preserve">
+    <value>Workflow instance {0} has been terminated.</value>
+  </data>
+  <data name="TrackingDeserializationCloseElementNotFound" xml:space="preserve">
+    <value>The expected closing element was not found: </value>
+  </data>
+  <data name="TrackingDeserializationInvalidPosition" xml:space="preserve">
+    <value>Reader is not positioned on the expected element: </value>
+  </data>
+  <data name="TrackingDeserializationInvalidType" xml:space="preserve">
+    <value>TypeName and Type may not both contain values.</value>
+  </data>
+  <data name="TrackingDeserializationSchemaError" xml:space="preserve">
+    <value>Schema validation failed.</value>
+  </data>
+  <data name="TrackingProfileInvalidMember" xml:space="preserve">
+    <value>Member cannot be null or empty.</value>
+  </data>
+  <data name="TrackingProfileManagerNotInitialized" xml:space="preserve">
+    <value>TrackingProfileManager has not been initialized</value>
+  </data>
+  <data name="TrackingProfileUpdate" xml:space="preserve">
+    <value>Suspend for tracking profile update.</value>
+  </data>
+  <data name="TrackingRecord" xml:space="preserve">
+    <value>Tracking Record</value>
+  </data>
+  <data name="TrackingSerializationInvalidExtract" xml:space="preserve">
+    <value>Invalid Extract type.</value>
+  </data>
+  <data name="TrackingSerializationNoTrackPoints" xml:space="preserve">
+    <value>At least one TrackPoint is required.</value>
+  </data>
+  <data name="TypeMustHavePublicDefaultConstructor" xml:space="preserve">
+    <value>The input workflow type must define a public, parameterless constructor.</value>
+  </data>
+  <data name="TypeMustImplementRootActivity" xml:space="preserve">
+    <value>The input workflow type must be an Activity.</value>
+  </data>
+  <data name="UnknownActivityActionType" xml:space="preserve">
+    <value>Unknown ActivityAction type</value>
+  </data>
+  <data name="UnknownConfigurationParameter" xml:space="preserve">
+    <value>An unknown configuration parameter was specified, "{0}".</value>
+  </data>
+  <data name="UnsupportedSqlProvider" xml:space="preserve">
+    <value>Database provider "{0}" is not supported.</value>
+  </data>
+  <data name="UpdatedProfile" xml:space="preserve">
+    <value>Updated profile for workflow </value>
+  </data>
+  <data name="WorkBatchNotFound" xml:space="preserve">
+    <value>No work batch is found in the thread.</value>
+  </data>
+  <data name="WorkflowChange" xml:space="preserve">
+    <value>Model Change</value>
+  </data>
+  <data name="WorkflowMarkupDeserializationError" xml:space="preserve">
+    <value>Failed deserializing workflow markup.  Make sure all necessary types are available.</value>
+  </data>
+  <data name="WorkflowNotValid" xml:space="preserve">
+    <value>The in-memory workflow object is no longer valid. The workflow has unloaded, completed, terminated, or aborted.</value>
+  </data>
+  <data name="WorkflowOwnershipException" xml:space="preserve">
+    <value>This workflow is not owned by the WorkflowRuntime. The WorkflowRuntime's ownership has expired, or another WorkflowRuntime owns the workflow.</value>
+  </data>
+  <data name="WorkflowRuntimeNotStarted" xml:space="preserve">
+    <value>This operation can only be performed with a started WorkflowRuntime.</value>
+  </data>
+  <data name="WorkflowTypeMismatch" xml:space="preserve">
+    <value>Can not create workflow definition.  WorkflowLoaderService has returned an object whose type does not match '{0}'.</value>
+  </data>
+  <data name="WorkflowValidationFailure" xml:space="preserve">
+    <value>The workflow failed validation.</value>
+  </data>
+  <data name="WorkflowWithIdAlreadyExists" xml:space="preserve">
+    <value>A workflow already exists for the given workflow instance ID.</value>
+  </data>
+  <data name="XomlWorkflowHasClassName" xml:space="preserve">
+    <value>'x:Class' cannot be used when the markup is executed directly without creating a new activity type.</value>
+  </data>
+  <data name="XomlWorkflowHasCode" xml:space="preserve">
+    <value>'x:Code' cannot be used when the markup is executed directly without creating a new activity type.</value>
+  </data>
+</root>
