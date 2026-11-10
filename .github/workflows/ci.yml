@@ -1,0 +1,252 @@
+# Linux and Windows builds in parallel, the tests on each (docs/TESTING.md), and the NuGet packages: every run packs
+# them, checks that an application builds and runs from them, and keeps Linux's as the "packages" artifact. Microsoft's
+# code comes from the external/referencesource submodule. A version tag (v0.1.0, matching <Version> in
+# Directory.Build.props) also publishes the packages as a GitHub release, once Linux and Windows pass.
+name: CI
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  DOTNET_NOLOGO: "1"
+  DOTNET_CLI_TELEMETRY_OPTOUT: "1"
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      # The release version from Directory.Build.props; any other run builds a prerelease of it (0.1.0-ci.123).
+      - name: Version
+        id: version
+        run: |
+          base=$(grep -oP '(?<=<Version>)[^<]+' Directory.Build.props)
+          if [[ "$GITHUB_REF" == refs/tags/v* ]]; then
+            if [[ "${GITHUB_REF#refs/tags/v}" != "$base" ]]; then
+              echo "::error::Tag ${GITHUB_REF#refs/tags/} doesn't match <Version>$base</Version> in Directory.Build.props"; exit 1
+            fi
+            version=$base
+          else
+            version=$base-ci.$GITHUB_RUN_NUMBER
+          fi
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "Version: $version"
+
+      - name: Set up .NET (global.json)
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+
+      # CONTRIBUTING.md rules 8 and 9, on workflowForCore's own code.
+      - name: Code rules
+        run: dotnet run tools/ci/check_code_rules.cs
+
+      - name: Build
+        run: dotnet build workflowForCore.slnx -c Release -nodeReuse:false -p:Version=${{ steps.version.outputs.version }}
+
+      # Name, version, culture and public key token against .NET Framework 4.8's reference assemblies.
+      - name: Assembly identities
+        run: |
+          curl -sSfL -o "$RUNNER_TEMP/net48.nupkg" https://api.nuget.org/v3-flatcontainer/microsoft.netframework.referenceassemblies.net48/1.0.3/microsoft.netframework.referenceassemblies.net48.1.0.3.nupkg
+          dotnet run tools/ci/check_assembly_identities.cs -- src/workflowForCore.System.Workflow.Activities/bin/Release/net10.0 "$RUNNER_TEMP/net48.nupkg"
+
+      - name: Test
+        run: tools/ci/run-tests.sh "$RUNNER_TEMP/TestResults"
+
+      - name: Test summary
+        if: always()
+        run: cat "$RUNNER_TEMP/TestResults/summary.md" >> "$GITHUB_STEP_SUMMARY" || true
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: ${{ runner.temp }}/TestResults/*.trx
+          if-no-files-found: warn
+
+      - name: Pack
+        run: tools/ci/pack.sh ${{ steps.version.outputs.version }} "$RUNNER_TEMP/packages"
+
+      # An application that references the workflowForCore package (not the projects) builds and runs a workflow.
+      - name: Package smoke test
+        run: tools/ci/package-smoke.sh "$RUNNER_TEMP/packages" ${{ steps.version.outputs.version }}
+
+      - name: Upload packages
+        uses: actions/upload-artifact@v4
+        with:
+          name: packages
+          path: |
+            ${{ runner.temp }}/packages/*.nupkg
+            ${{ runner.temp }}/packages/*.snupkg
+          if-no-files-found: error
+
+  # The same build, tests, packing and package smoke test on Windows, the identities against .NET Framework 4.8's
+  # GAC, and the tests again on .NET Framework 4.8 itself, which must give the same results (docs/TESTING.md).
+  build-windows:
+    runs-on: windows-2025
+    timeout-minutes: 40
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+      # Check files out as they are stored, as on Linux: core.autocrlf would give the shell scripts CRLF line endings.
+      - name: Line endings
+        run: git config --global core.autocrlf false
+
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      - name: Set up .NET (global.json)
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Code rules
+        run: dotnet run tools/ci/check_code_rules.cs
+
+      - name: Build
+        run: dotnet build workflowForCore.slnx -c Release -nodeReuse:false -p:Version=0.0.0-windows.${{ github.run_number }}
+
+      # Against .NET Framework 4.8's GAC, which .NET Framework loads, and its reference assemblies.
+      - name: Assembly identities
+        run: |
+          curl -sSfL -o "$RUNNER_TEMP/net48.nupkg" https://api.nuget.org/v3-flatcontainer/microsoft.netframework.referenceassemblies.net48/1.0.3/microsoft.netframework.referenceassemblies.net48.1.0.3.nupkg
+          dotnet run tools/ci/check_assembly_identities.cs -- src/workflowForCore.System.Workflow.Activities/bin/Release/net10.0 \
+            'C:\Windows\Microsoft.NET\assembly\GAC_MSIL' "$RUNNER_TEMP/net48.nupkg"
+
+      - name: Test
+        run: tools/ci/run-tests.sh "$RUNNER_TEMP/TestResults"
+
+      - name: Test summary
+        if: always()
+        run: cat "$RUNNER_TEMP/TestResults/summary.md" >> "$GITHUB_STEP_SUMMARY" || true
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results-windows
+          path: ${{ runner.temp }}/TestResults/*.trx
+          if-no-files-found: warn
+
+      - name: Pack
+        run: tools/ci/pack.sh 0.0.0-windows.${{ github.run_number }} "$RUNNER_TEMP/packages"
+
+      - name: Package smoke test
+        run: tools/ci/package-smoke.sh "$RUNNER_TEMP/packages" 0.0.0-windows.${{ github.run_number }}
+
+  # What workflowForCore reads from .NET Framework 4.8 as data (docs/MODIFICATIONS.md): the string resources, the
+  # appSettings keys and AppContext switches, and the SQL scripts. This job reads them again from the Windows runner's
+  # .NET Framework and fails if the committed copies differ; its output is the framework-data artifact, to commit when
+  # something is added. It needs nothing of workflowForCore's build. Not a required check (docs/TESTING.md).
+  framework-data:
+    runs-on: windows-2025
+    timeout-minutes: 15
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+      - name: Line endings
+        run: git config --global core.autocrlf false
+
+      - uses: actions/checkout@v4
+
+      - name: Set up .NET (global.json)
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Strings
+        if: always()
+        run: dotnet run tools/framework_data.cs -- 'C:\Windows\Microsoft.NET\assembly\GAC_MSIL' "$RUNNER_TEMP/framework-data/strings" src
+
+      - name: Settings
+        if: always()
+        run: |
+          committed=src/FrameworkData/settings.txt
+          dotnet run tools/framework_settings.cs -- 'C:\Windows\Microsoft.NET\assembly\GAC_MSIL' "$RUNNER_TEMP/framework-data/settings.txt" \
+            $( [ -f "$committed" ] && echo "$committed" )
+
+      - name: SQL scripts
+        if: always()
+        run: |
+          sql=/c/Windows/Microsoft.NET/Framework/v4.0.30319/SQL/en
+          out="$RUNNER_TEMP/framework-data/Sql"; mkdir -p "$out"
+          ls -l "$sql"
+          for f in SqlPersistenceService_Schema.sql SqlPersistenceService_Logic.sql Tracking_Schema.sql Tracking_Logic.sql; do
+            cp "$sql/$f" "$out/"
+          done
+          if [ -d src/workflowForCore.System.Workflow.Runtime/FrameworkData/Sql ]; then
+            diff -r --brief src/workflowForCore.System.Workflow.Runtime/FrameworkData/Sql "$out"
+          fi
+
+      - name: Upload the data
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: framework-data
+          path: ${{ runner.temp }}/framework-data/
+          if-no-files-found: warn
+
+  # A version tag: the tested packages become a GitHub release.
+  release:
+    needs: [build-and-test, build-windows]
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: docs/release-notes
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: packages
+          path: packages
+
+      - name: Create the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ needs.build-and-test.outputs.version }}
+        run: |
+          cat > notes.md <<NOTES
+          workflowForCore $VERSION as NuGet packages, also on the feed https://xforcore.github.io/workflowForCore/index.json
+          (with webForCore's feed for webForCore.Serialization.Formatters; see README.md). Reference \`workflowForCore\`, which brings
+          \`workflowForCore.ComponentModel\`, \`workflowForCore.Runtime\` and \`workflowForCore.Activities\`.
+          NOTES
+          if [ -f "docs/release-notes/$VERSION.md" ]; then printf '\n' >> notes.md; cat "docs/release-notes/$VERSION.md" >> notes.md; fi
+          gh release create "$GITHUB_REF_NAME" packages/*.nupkg packages/*.snupkg \
+            --repo "$GITHUB_REPOSITORY" --title "workflowForCore $VERSION" --notes-file notes.md --verify-tag
+
+  # The NuGet feed on GitHub Pages, rebuilt from the latest releases.
+  feed:
+    needs: release
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    uses: ./.github/workflows/feed.yml

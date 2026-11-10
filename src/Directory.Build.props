@@ -1,0 +1,36 @@
+<Project>
+  <Import Project="..\Directory.Build.props" />
+
+  <!-- What the three assemblies have in common: Microsoft's code from the external/referencesource submodule, compiled
+       for .NET 10 with .NET Framework 4.x's assembly identities. -->
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+    <!-- .NET Framework 4's identity: version 4.0.0.0 (WF3 shipped as 3.0.0.0 in .NET Framework 3.0; .NET Framework 4
+         rebuilt it as 4.0.0.0), Microsoft's public key token 31bf3856ad364e35 (below). The file version is .NET
+         Framework 4.8's. CI compares both with .NET Framework 4.8's assemblies (tools/check_assembly_identities.cs). -->
+    <AssemblyVersion>4.0.0.0</AssemblyVersion>
+    <FileVersion>4.8.9032.0</FileVersion>
+    <InformationalVersion>$(Version)</InformationalVersion>
+    <Company>workflowForCore contributors</Company>
+    <Product>workflowForCore</Product>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <!-- Microsoft's code is compiled as it is (docs/MODIFICATIONS.md): the warnings it has on .NET are not fixed in it. -->
+    <NoWarn>$(NoWarn);CS0618;CS0649;CS0169;CS0414;CS0067;CS0108;CS0114;CS0162;CS0168;CS0219;CS0436;CS0672;CS1574;CS1584;CS1658;CS1998;CA1416;CA2022;SYSLIB0003;SYSLIB0004;SYSLIB0011;SYSLIB0012;SYSLIB0050;SYSLIB0051</NoWarn>
+    <!-- Microsoft's identity, so that .NET Framework libraries and serialized workflow state bind to it: delay signed
+         with Microsoft's public key (keys/35MSSharedLib1024.snk, token 31bf3856ad364e35), as webForCore signs its
+         assemblies with Microsoft's identities. Not signed by Microsoft. -->
+    <SignAssembly>true</SignAssembly>
+    <DelaySign>true</DelaySign>
+    <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)..\keys\35MSSharedLib1024.snk</AssemblyOriginatorKeyFile>
+    <!-- Marks what workflowForCore leaves out of Microsoft's files (#if !WORKFLOWFORCORE, docs/MODIFICATIONS.md). -->
+    <DefineConstants>$(DefineConstants);WORKFLOWFORCORE</DefineConstants>
+    <ReferenceSource>$(MSBuildThisFileDirectory)..\external\referencesource\</ReferenceSource>
+  </PropertyGroup>
+</Project>
